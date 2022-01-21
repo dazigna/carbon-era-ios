@@ -1,0 +1,12 @@
+query getItems {
+  allItems {
+    nameFr
+    totalPoste
+    unit {
+      name
+      quantity
+    }
+    unitStr
+  }
+}
+

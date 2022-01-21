@@ -1,0 +1,112 @@
+type Query {
+  allUnits: [UnitsType]
+  allItems: [ItemsType]
+  allCategories: [CategoriesType]
+}
+
+type UnitsType {
+  """"""
+  id: ID!
+
+  """"""
+  name: String
+
+  """"""
+  numerator: String
+
+  """"""
+  denominator: String
+
+  """"""
+  quantity: String
+
+  """"""
+  attribute: JSONString
+
+  """"""
+  itemSet: [ItemsType!]!
+}
+
+"""
+Allows use of a JSON String for input / output from the GraphQL schema.
+
+Use of this type is *not recommended* as you lose the benefits of having a defined, static
+schema (one of the key benefits of GraphQL).
+"""
+scalar JSONString
+
+type ItemsType {
+  """"""
+  id: ID!
+
+  """"""
+  nameFr: String
+
+  """"""
+  nameEn: String
+
+  """"""
+  attributeFr: String
+
+  """"""
+  attributeEn: String
+
+  """"""
+  categoryStr: String
+
+  """"""
+  tagFr: String
+
+  """"""
+  tagEn: String
+
+  """"""
+  unitStr: String
+
+  """"""
+  confidence: Int
+
+  """"""
+  totalPoste: Float
+
+  """"""
+  co2f: Float
+
+  """"""
+  ch4f: Float
+
+  """"""
+  ch4b: Float
+
+  """"""
+  n2o: Float
+
+  """"""
+  co2b: Float
+
+  """"""
+  otherGhg: Float
+
+  """"""
+  category: CategoriesType
+
+  """"""
+  unit: UnitsType
+}
+
+type CategoriesType {
+  """"""
+  id: ID!
+
+  """"""
+  parent: CategoriesType
+
+  """"""
+  name: String
+
+  """"""
+  children: [CategoriesType!]!
+
+  """"""
+  itemSet: [ItemsType!]!
+}

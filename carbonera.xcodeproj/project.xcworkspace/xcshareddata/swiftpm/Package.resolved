@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "ApolloCombine",
+        "repositoryURL": "https://github.com/joel-perry/ApolloCombine",
+        "state": {
+          "branch": null,
+          "revision": "581370e8d0204b7ec0df115bc1e79986fa113494",
+          "version": "0.5.0"
+        }
+      },
+      {
         "package": "SQLite.swift",
         "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
         "state": {

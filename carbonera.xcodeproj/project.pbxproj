@@ -13,11 +13,36 @@
 		CC0B95602790486500E01F5C /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B955F2790486500E01F5C /* Tests_macOSLaunchTests.swift */; };
 		CC0B95612790486500E01F5C /* carboneraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B95392790486400E01F5C /* carboneraApp.swift */; };
 		CC0B95622790486500E01F5C /* carboneraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B95392790486400E01F5C /* carboneraApp.swift */; };
-		CC0B95632790486500E01F5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B953A2790486400E01F5C /* ContentView.swift */; };
-		CC0B95642790486500E01F5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B953A2790486400E01F5C /* ContentView.swift */; };
+		CC0B95632790486500E01F5C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B953A2790486400E01F5C /* UserView.swift */; };
+		CC0B95642790486500E01F5C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B953A2790486400E01F5C /* UserView.swift */; };
 		CC0B95652790486500E01F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B953B2790486500E01F5C /* Assets.xcassets */; };
 		CC0B95662790486500E01F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B953B2790486500E01F5C /* Assets.xcassets */; };
 		CC0B957727904B9400E01F5C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = CC0B957627904B9400E01F5C /* Apollo */; };
+		CCD5312C2799CAA700D6ED4B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312B2799CAA700D6ED4B /* API.swift */; };
+		CCD5312D2799CAA700D6ED4B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312B2799CAA700D6ED4B /* API.swift */; };
+		CCD5312F2799CAD900D6ED4B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */; };
+		CCD531302799CAD900D6ED4B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */; };
+		CCD531322799CC2900D6ED4B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531312799CC2900D6ED4B /* Item.swift */; };
+		CCD531332799CC2900D6ED4B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531312799CC2900D6ED4B /* Item.swift */; };
+		CCD531352799CCAF00D6ED4B /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531342799CCAF00D6ED4B /* Unit.swift */; };
+		CCD531362799CCAF00D6ED4B /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531342799CCAF00D6ED4B /* Unit.swift */; };
+		CCD531382799CCF300D6ED4B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531372799CCF300D6ED4B /* Error.swift */; };
+		CCD531392799CCF300D6ED4B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531372799CCF300D6ED4B /* Error.swift */; };
+		CCD5313C2799F60100D6ED4B /* ApolloCombine in Frameworks */ = {isa = PBXBuildFile; productRef = CCD5313B2799F60100D6ED4B /* ApolloCombine */; };
+		CCD5313E2799F94400D6ED4B /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5313D2799F94400D6ED4B /* ConfigurationManager.swift */; };
+		CCD5313F2799F94400D6ED4B /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5313D2799F94400D6ED4B /* ConfigurationManager.swift */; };
+		CCD531412799FBBE00D6ED4B /* CarbonItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531402799FBBE00D6ED4B /* CarbonItemListView.swift */; };
+		CCD531422799FBBE00D6ED4B /* CarbonItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531402799FBBE00D6ED4B /* CarbonItemListView.swift */; };
+		CCD531442799FC6100D6ED4B /* CarbonItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531432799FC6100D6ED4B /* CarbonItemViewModel.swift */; };
+		CCD531452799FC6100D6ED4B /* CarbonItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531432799FC6100D6ED4B /* CarbonItemViewModel.swift */; };
+		CCD53150279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */; };
+		CCD53151279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */; };
+		CCD53155279B13E000D6ED4B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53154279B13E000D6ED4B /* MainView.swift */; };
+		CCD53156279B13E000D6ED4B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53154279B13E000D6ED4B /* MainView.swift */; };
+		CCD53159279B141D00D6ED4B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53158279B141D00D6ED4B /* MapView.swift */; };
+		CCD5315A279B141D00D6ED4B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53158279B141D00D6ED4B /* MapView.swift */; };
+		CCD5315F279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */; };
+		CCD53160279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +64,7 @@
 
 /* Begin PBXFileReference section */
 		CC0B95392790486400E01F5C /* carboneraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carboneraApp.swift; sourceTree = "<group>"; };
-		CC0B953A2790486400E01F5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC0B953A2790486400E01F5C /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		CC0B953B2790486500E01F5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC0B95402790486500E01F5C /* carbonera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carbonera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B95462790486500E01F5C /* carbonera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carbonera.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +75,22 @@
 		CC0B95592790486500E01F5C /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B955D2790486500E01F5C /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		CC0B955F2790486500E01F5C /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		CCD531272799C93F00D6ED4B /* introspection_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = introspection_response.json; sourceTree = "<group>"; };
+		CCD531282799C93F00D6ED4B /* schema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
+		CCD5312A2799C9C000D6ED4B /* items.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = items.graphql; sourceTree = "<group>"; };
+		CCD5312B2799CAA700D6ED4B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CCD531312799CC2900D6ED4B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CCD531342799CCAF00D6ED4B /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		CCD531372799CCF300D6ED4B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		CCD5313D2799F94400D6ED4B /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
+		CCD531402799FBBE00D6ED4B /* CarbonItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemListView.swift; sourceTree = "<group>"; };
+		CCD531432799FC6100D6ED4B /* CarbonItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemViewModel.swift; sourceTree = "<group>"; };
+		CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemRowView.swift; sourceTree = "<group>"; };
+		CCD53152279B132B00D6ED4B /* carbonera--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "carbonera--iOS--Info.plist"; sourceTree = "<group>"; };
+		CCD53154279B13E000D6ED4B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CCD53158279B141D00D6ED4B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0B957727904B9400E01F5C /* Apollo in Frameworks */,
+				CCD5313C2799F60100D6ED4B /* ApolloCombine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +130,7 @@
 		CC0B95332790486400E01F5C = {
 			isa = PBXGroup;
 			children = (
+				CCD53152279B132B00D6ED4B /* carbonera--iOS--Info.plist */,
 				CC0B95382790486400E01F5C /* Shared */,
 				CC0B95472790486500E01F5C /* macOS */,
 				CC0B95502790486500E01F5C /* Tests iOS */,
@@ -100,8 +143,15 @@
 			isa = PBXGroup;
 			children = (
 				CC0B95392790486400E01F5C /* carboneraApp.swift */,
-				CC0B953A2790486400E01F5C /* ContentView.swift */,
+				CCD531272799C93F00D6ED4B /* introspection_response.json */,
+				CCD5312B2799CAA700D6ED4B /* API.swift */,
+				CCD531282799C93F00D6ED4B /* schema.graphqls */,
 				CC0B953B2790486500E01F5C /* Assets.xcassets */,
+				CCD5312A2799C9C000D6ED4B /* items.graphql */,
+				CCD5314C2799FFF300D6ED4B /* Services */,
+				CCD5314B2799FFE900D6ED4B /* DataModels */,
+				CCD531492799FFD600D6ED4B /* Views */,
+				CCD5314A2799FFDC00D6ED4B /* ViewModels */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -143,6 +193,94 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		CCD531492799FFD600D6ED4B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCD5315D279B1A5A00D6ED4B /* Modifiers */,
+				CCD5315C279B16D200D6ED4B /* User */,
+				CCD5315B279B142200D6ED4B /* Map */,
+				CCD53157279B140B00D6ED4B /* CarbonItems */,
+				CCD53154279B13E000D6ED4B /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CCD5314A2799FFDC00D6ED4B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CCD531432799FC6100D6ED4B /* CarbonItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CCD5314B2799FFE900D6ED4B /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				CCD531312799CC2900D6ED4B /* Item.swift */,
+				CCD531342799CCAF00D6ED4B /* Unit.swift */,
+				CCD531372799CCF300D6ED4B /* Error.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		CCD5314C2799FFF300D6ED4B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CCD5314D279A000C00D6ED4B /* Network */,
+				CCD5314E279A003700D6ED4B /* Configuration */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CCD5314D279A000C00D6ED4B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CCD5314E279A003700D6ED4B /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				CCD5313D2799F94400D6ED4B /* ConfigurationManager.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		CCD53157279B140B00D6ED4B /* CarbonItems */ = {
+			isa = PBXGroup;
+			children = (
+				CCD531402799FBBE00D6ED4B /* CarbonItemListView.swift */,
+				CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */,
+			);
+			path = CarbonItems;
+			sourceTree = "<group>";
+		};
+		CCD5315B279B142200D6ED4B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				CCD53158279B141D00D6ED4B /* MapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		CCD5315C279B16D200D6ED4B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CC0B953A2790486400E01F5C /* UserView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		CCD5315D279B1A5A00D6ED4B /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC0B95692790486500E01F5C /* Build configuration list for PBXNativeTarget "carbonera (iOS)" */;
 			buildPhases = (
+				CCD8F77D2799C5B30053597E /* Apollo */,
 				CC0B953C2790486500E01F5C /* Sources */,
 				CC0B953D2790486500E01F5C /* Frameworks */,
 				CC0B953E2790486500E01F5C /* Resources */,
@@ -161,6 +300,7 @@
 			name = "carbonera (iOS)";
 			packageProductDependencies = (
 				CC0B957627904B9400E01F5C /* Apollo */,
+				CCD5313B2799F60100D6ED4B /* ApolloCombine */,
 			);
 			productName = "carbonera (iOS)";
 			productReference = CC0B95402790486500E01F5C /* carbonera.app */;
@@ -256,6 +396,7 @@
 			mainGroup = CC0B95332790486400E01F5C;
 			packageReferences = (
 				CC0B957527904B9400E01F5C /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				CCD5313A2799F60100D6ED4B /* XCRemoteSwiftPackageReference "ApolloCombine" */,
 			);
 			productRefGroup = CC0B95412790486500E01F5C /* Products */;
 			projectDirPath = "";
@@ -302,12 +443,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CCD8F77D2799C5B30053597E /* Apollo */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Apollo;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\ncd \"${SRCROOT}\"/ApolloCodegen\n#xcrun -sdk macosx swift run ApolloCodegen downloadSchema\nxcrun -sdk macosx swift run ApolloCodegen generate\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC0B953C2790486500E01F5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC0B95632790486500E01F5C /* ContentView.swift in Sources */,
+				CCD5315F279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */,
+				CCD531442799FC6100D6ED4B /* CarbonItemViewModel.swift in Sources */,
+				CCD53155279B13E000D6ED4B /* MainView.swift in Sources */,
+				CCD5313E2799F94400D6ED4B /* ConfigurationManager.swift in Sources */,
+				CCD531412799FBBE00D6ED4B /* CarbonItemListView.swift in Sources */,
+				CCD53159279B141D00D6ED4B /* MapView.swift in Sources */,
+				CCD5312F2799CAD900D6ED4B /* NetworkManager.swift in Sources */,
+				CCD53150279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */,
+				CCD531322799CC2900D6ED4B /* Item.swift in Sources */,
+				CC0B95632790486500E01F5C /* UserView.swift in Sources */,
+				CCD531352799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCD5312C2799CAA700D6ED4B /* API.swift in Sources */,
+				CCD531382799CCF300D6ED4B /* Error.swift in Sources */,
 				CC0B95612790486500E01F5C /* carboneraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +490,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC0B95642790486500E01F5C /* ContentView.swift in Sources */,
+				CCD53160279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */,
+				CCD531452799FC6100D6ED4B /* CarbonItemViewModel.swift in Sources */,
+				CCD53156279B13E000D6ED4B /* MainView.swift in Sources */,
+				CCD5313F2799F94400D6ED4B /* ConfigurationManager.swift in Sources */,
+				CCD531422799FBBE00D6ED4B /* CarbonItemListView.swift in Sources */,
+				CCD5315A279B141D00D6ED4B /* MapView.swift in Sources */,
+				CCD531302799CAD900D6ED4B /* NetworkManager.swift in Sources */,
+				CCD53151279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */,
+				CCD531332799CC2900D6ED4B /* Item.swift in Sources */,
+				CC0B95642790486500E01F5C /* UserView.swift in Sources */,
+				CCD531362799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCD5312D2799CAA700D6ED4B /* API.swift in Sources */,
+				CCD531392799CCF300D6ED4B /* Error.swift in Sources */,
 				CC0B95622790486500E01F5C /* carboneraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +662,7 @@
 				DEVELOPMENT_TEAM = 59N86RC43L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "carbonera--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -506,6 +693,7 @@
 				DEVELOPMENT_TEAM = 59N86RC43L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "carbonera--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -717,8 +905,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios";
 			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.50.0;
+			};
+		};
+		CCD5313A2799F60100D6ED4B /* XCRemoteSwiftPackageReference "ApolloCombine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joel-perry/ApolloCombine";
+			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.5;
+				minimumVersion = 0.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -728,6 +924,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC0B957527904B9400E01F5C /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
+		};
+		CCD5313B2799F60100D6ED4B /* ApolloCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCD5313A2799F60100D6ED4B /* XCRemoteSwiftPackageReference "ApolloCombine" */;
+			productName = ApolloCombine;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
