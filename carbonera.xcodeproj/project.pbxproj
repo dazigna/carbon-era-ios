@@ -43,6 +43,9 @@
 		CCD5315A279B141D00D6ED4B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53158279B141D00D6ED4B /* MapView.swift */; };
 		CCD5315F279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */; };
 		CCD53160279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */; };
+		CCD53166279B385700D6ED4B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD53165279B385700D6ED4B /* MapKit.framework */; };
+		CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53167279B3CE800D6ED4B /* MapViewModel.swift */; };
+		CCD53169279B3CE800D6ED4B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53167279B3CE800D6ED4B /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,8 @@
 		CCD53154279B13E000D6ED4B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CCD53158279B141D00D6ED4B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListModifier.swift; sourceTree = "<group>"; };
+		CCD53165279B385700D6ED4B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		CCD53167279B3CE800D6ED4B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0B957727904B9400E01F5C /* Apollo in Frameworks */,
+				CCD53166279B385700D6ED4B /* MapKit.framework in Frameworks */,
 				CCD5313C2799F60100D6ED4B /* ApolloCombine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +142,7 @@
 				CC0B95502790486500E01F5C /* Tests iOS */,
 				CC0B955C2790486500E01F5C /* Tests macOS */,
 				CC0B95412790486500E01F5C /* Products */,
+				CCD53164279B385700D6ED4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				CCD531432799FC6100D6ED4B /* CarbonItemViewModel.swift */,
+				CCD53167279B3CE800D6ED4B /* MapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -279,6 +287,14 @@
 				CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		CCD53164279B385700D6ED4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCD53165279B385700D6ED4B /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +496,7 @@
 				CCD531322799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95632790486500E01F5C /* UserView.swift in Sources */,
 				CCD531352799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
 				CCD5312C2799CAA700D6ED4B /* API.swift in Sources */,
 				CCD531382799CCF300D6ED4B /* Error.swift in Sources */,
 				CC0B95612790486500E01F5C /* carboneraApp.swift in Sources */,
@@ -501,6 +518,7 @@
 				CCD531332799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95642790486500E01F5C /* UserView.swift in Sources */,
 				CCD531362799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCD53169279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
 				CCD5312D2799CAA700D6ED4B /* API.swift in Sources */,
 				CCD531392799CCF300D6ED4B /* Error.swift in Sources */,
 				CC0B95622790486500E01F5C /* carboneraApp.swift in Sources */,
@@ -663,6 +681,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "carbonera--iOS--Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to localize carbon data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -694,6 +713,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "carbonera--iOS--Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to localize carbon data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

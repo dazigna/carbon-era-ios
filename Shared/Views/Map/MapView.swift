@@ -6,15 +6,43 @@
 //
 
 import SwiftUI
+import MapKit
+import CoreLocationUI
 
 struct MapView: View {
+    
+    @ObservedObject var viewModel: MapViewModel
+
+    @State private var trackingMode = MapUserTrackingMode.follow
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .bottom){
+            Map(
+                coordinateRegion: $viewModel.userRegion,
+                interactionModes: .all,
+                showsUserLocation: true,
+                userTrackingMode: $trackingMode
+            )
+            
+            HStack{
+                Spacer()
+                LocationButton(.currentLocation){
+                    viewModel.requestLocation()
+                }
+                .labelStyle(.iconOnly)
+                .symbolVariant(.fill)
+                .tint(.blue)
+            }
+            .padding()
+        }.onAppear{
+            viewModel.requestAuthorization()
+        }
+        .padding()
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MapView(viewModel: MapViewModel())
     }
 }

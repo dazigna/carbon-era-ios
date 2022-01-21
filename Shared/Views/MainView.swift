@@ -15,7 +15,7 @@ struct MainView: View {
                 .tabItem{
                     Label("Items", systemImage: "list.dash")
                 }
-            MapView()
+            MapView(viewModel: MapViewModel())
                 .tabItem{
                     Label("Map", systemImage: "map.circle")
                 }
