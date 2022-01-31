@@ -1,12 +1,46 @@
-query getItems {
-  allItems {
-    nameFr
-    totalPoste
-    unit {
-      name
-      quantity
+query getItems($cursor: String, $first: Int) {
+  items(after: $cursor, first: $first) {
+    edges {
+      node {
+        ...itemDetails
+      }
+      cursor
     }
-    unitStr
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
   }
 }
+
+query getItemsByCategory($categoryName: String, $cursor: String, $first: Int) {
+  items(itemsByCategoryName: $categoryName, after: $cursor, first: $first) {
+    edges {
+      node {
+        ...itemDetails
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+
+
+fragment itemDetails on ItemNode {
+  id
+  nameFr
+  totalPoste
+  unitStr
+  categoryStr
+  confidence
+  tagFr
+  attributeFr
+  unit{
+      ...unitDetails
+    }
+}
+
 

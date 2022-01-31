@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Unit: Hashable{
-    let name: String
-    let quantity: String
+struct Unit: Identifiable{
+    let id = UUID()
+    let name: String?
+    let quantity: String?
+    
+    init(name: String? = nil, quantity: String? = nil){
+        self.name = name
+        self.quantity = quantity
+    }
 }

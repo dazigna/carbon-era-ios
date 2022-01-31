@@ -11,7 +11,7 @@ import CoreLocationUI
 
 struct MapView: View {
     
-    @ObservedObject var viewModel: MapViewModel
+    @StateObject var viewModel: MapViewModel
 
     @State private var trackingMode = MapUserTrackingMode.follow
 

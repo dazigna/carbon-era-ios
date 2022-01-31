@@ -8,21 +8,24 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var mapViewModel = MapViewModel()
     
     var body: some View {
         TabView{
-            CarbonItemListView(viewModel: CarbonItemViewModel())
+            CarbonView(viewModel: CarbonItemViewModel())
                 .tabItem{
                     Label("Items", systemImage: "list.dash")
                 }
+//                .environmentObject(carbonViewModel)
             MapView(viewModel: MapViewModel())
                 .tabItem{
                     Label("Map", systemImage: "map.circle")
                 }
-            UserView()
-                .tabItem{
-                    Label("User", systemImage: "person")
-                }
+//                .environmentObject(mapViewModel)
+//            UserView()
+//                .tabItem{
+//                    Label("User", systemImage: "person")
+//                }
         }
     }
 }

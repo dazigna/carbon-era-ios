@@ -1,0 +1,21 @@
+fragment unitDetails on UnitNode{
+  name
+  quantity
+  numerator
+  denominator
+}
+
+query getUnits($cursor: String, $first: Int){
+  units(after: $cursor, first: $first){
+    edges{
+      node{
+        ...unitDetails
+      }
+      cursor
+    }
+    pageInfo{
+      endCursor
+      hasNextPage
+    }
+  }
+}

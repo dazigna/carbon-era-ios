@@ -1,42 +1,97 @@
 type Query {
-  allUnits: [UnitsType]
-  allItems: [ItemsType]
-  allCategories: [CategoriesType]
+  category(
+    """The ID of the object"""
+    id: ID!
+  ): CategoryNode
+  categories(offset: Int, before: String, after: String, first: Int, last: Int, name: String, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection
+  item(
+    """The ID of the object"""
+    id: ID!
+  ): ItemNode
+  items(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, itemsByCategoryName: String): ItemNodeConnection
+  unit(
+    """The ID of the object"""
+    id: ID!
+  ): UnitNode
+  units(offset: Int, before: String, after: String, first: Int, last: Int, name: String, quantity: String): UnitNodeConnection
 }
 
-type UnitsType {
-  """"""
+type CategoryNode implements Node {
+  """The ID of the object."""
   id: ID!
+
+  """"""
+  parent: CategoryNode
 
   """"""
   name: String
 
   """"""
-  numerator: String
+  children(offset: Int, before: String, after: String, first: Int, last: Int, name: String, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection!
 
   """"""
-  denominator: String
+  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, itemsByCategoryName: String): ItemNodeConnection!
+}
 
-  """"""
-  quantity: String
+"""An object with an ID"""
+interface Node {
+  """The ID of the object."""
+  id: ID!
+}
 
-  """"""
-  attribute: JSONString
+type CategoryNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
 
-  """"""
-  itemSet: [ItemsType!]!
+  """Contains the nodes in this connection."""
+  edges: [CategoryNodeEdge]!
 }
 
 """
-Allows use of a JSON String for input / output from the GraphQL schema.
-
-Use of this type is *not recommended* as you lose the benefits of having a defined, static
-schema (one of the key benefits of GraphQL).
+The Relay compliant `PageInfo` type, containing data necessary to paginate this connection.
 """
-scalar JSONString
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
 
-type ItemsType {
-  """"""
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+"""A Relay edge containing a `CategoryNode` and its cursor."""
+type CategoryNodeEdge {
+  """The item at the end of the edge"""
+  node: CategoryNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type ItemNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [ItemNodeEdge]!
+}
+
+"""A Relay edge containing a `ItemNode` and its cursor."""
+type ItemNodeEdge {
+  """The item at the end of the edge"""
+  node: ItemNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type ItemNode implements Node {
+  """The ID of the object."""
   id: ID!
 
   """"""
@@ -88,25 +143,56 @@ type ItemsType {
   otherGhg: Float
 
   """"""
-  category: CategoriesType
+  category: CategoryNode
 
   """"""
-  unit: UnitsType
+  unit: UnitNode
 }
 
-type CategoriesType {
-  """"""
+type UnitNode implements Node {
+  """The ID of the object."""
   id: ID!
-
-  """"""
-  parent: CategoriesType
 
   """"""
   name: String
 
   """"""
-  children: [CategoriesType!]!
+  numerator: String
 
   """"""
-  itemSet: [ItemsType!]!
+  denominator: String
+
+  """"""
+  quantity: String
+
+  """"""
+  attribute: JSONString
+
+  """"""
+  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, itemsByCategoryName: String): ItemNodeConnection!
+}
+
+"""
+Allows use of a JSON String for input / output from the GraphQL schema.
+
+Use of this type is *not recommended* as you lose the benefits of having a defined, static
+schema (one of the key benefits of GraphQL).
+"""
+scalar JSONString
+
+type UnitNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [UnitNodeEdge]!
+}
+
+"""A Relay edge containing a `UnitNode` and its cursor."""
+type UnitNodeEdge {
+  """The item at the end of the edge"""
+  node: UnitNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
 }

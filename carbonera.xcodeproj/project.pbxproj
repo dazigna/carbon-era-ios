@@ -18,6 +18,14 @@
 		CC0B95652790486500E01F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B953B2790486500E01F5C /* Assets.xcassets */; };
 		CC0B95662790486500E01F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B953B2790486500E01F5C /* Assets.xcassets */; };
 		CC0B957727904B9400E01F5C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = CC0B957627904B9400E01F5C /* Apollo */; };
+		CCC16B2E279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
+		CCC16B2F279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
+		CCC16B31279F070E004DBCB6 /* categories.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B30279F070E004DBCB6 /* categories.graphql */; };
+		CCC16B32279F070E004DBCB6 /* categories.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B30279F070E004DBCB6 /* categories.graphql */; };
+		CCC16B34279F07C4004DBCB6 /* CategoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */; };
+		CCC16B35279F07C4004DBCB6 /* CategoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */; };
+		CCC16B3727A1FBDA004DBCB6 /* units.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B3627A1FBDA004DBCB6 /* units.graphql */; };
+		CCC16B3827A1FBDA004DBCB6 /* units.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B3627A1FBDA004DBCB6 /* units.graphql */; };
 		CCD5312C2799CAA700D6ED4B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312B2799CAA700D6ED4B /* API.swift */; };
 		CCD5312D2799CAA700D6ED4B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312B2799CAA700D6ED4B /* API.swift */; };
 		CCD5312F2799CAD900D6ED4B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */; };
@@ -78,6 +86,10 @@
 		CC0B95592790486500E01F5C /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B955D2790486500E01F5C /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		CC0B955F2790486500E01F5C /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		CCC16B2D279F02FA004DBCB6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		CCC16B30279F070E004DBCB6 /* categories.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = categories.graphql; sourceTree = "<group>"; };
+		CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowView.swift; sourceTree = "<group>"; };
+		CCC16B3627A1FBDA004DBCB6 /* units.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = units.graphql; sourceTree = "<group>"; };
 		CCD531272799C93F00D6ED4B /* introspection_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = introspection_response.json; sourceTree = "<group>"; };
 		CCD531282799C93F00D6ED4B /* schema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		CCD5312A2799C9C000D6ED4B /* items.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = items.graphql; sourceTree = "<group>"; };
@@ -155,6 +167,8 @@
 				CCD531282799C93F00D6ED4B /* schema.graphqls */,
 				CC0B953B2790486500E01F5C /* Assets.xcassets */,
 				CCD5312A2799C9C000D6ED4B /* items.graphql */,
+				CCC16B3627A1FBDA004DBCB6 /* units.graphql */,
+				CCC16B30279F070E004DBCB6 /* categories.graphql */,
 				CCD5314C2799FFF300D6ED4B /* Services */,
 				CCD5314B2799FFE900D6ED4B /* DataModels */,
 				CCD531492799FFD600D6ED4B /* Views */,
@@ -227,6 +241,7 @@
 				CCD531312799CC2900D6ED4B /* Item.swift */,
 				CCD531342799CCAF00D6ED4B /* Unit.swift */,
 				CCD531372799CCF300D6ED4B /* Error.swift */,
+				CCC16B2D279F02FA004DBCB6 /* Category.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -261,6 +276,7 @@
 			children = (
 				CCD531402799FBBE00D6ED4B /* CarbonItemListView.swift */,
 				CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */,
+				CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */,
 			);
 			path = CarbonItems;
 			sourceTree = "<group>";
@@ -432,6 +448,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0B95652790486500E01F5C /* Assets.xcassets in Resources */,
+				CCC16B3727A1FBDA004DBCB6 /* units.graphql in Resources */,
+				CCC16B31279F070E004DBCB6 /* categories.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +458,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0B95662790486500E01F5C /* Assets.xcassets in Resources */,
+				CCC16B3827A1FBDA004DBCB6 /* units.graphql in Resources */,
+				CCC16B32279F070E004DBCB6 /* categories.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,10 +508,12 @@
 				CCD5315F279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */,
 				CCD531442799FC6100D6ED4B /* CarbonItemViewModel.swift in Sources */,
 				CCD53155279B13E000D6ED4B /* MainView.swift in Sources */,
+				CCC16B34279F07C4004DBCB6 /* CategoryRowView.swift in Sources */,
 				CCD5313E2799F94400D6ED4B /* ConfigurationManager.swift in Sources */,
 				CCD531412799FBBE00D6ED4B /* CarbonItemListView.swift in Sources */,
 				CCD53159279B141D00D6ED4B /* MapView.swift in Sources */,
 				CCD5312F2799CAD900D6ED4B /* NetworkManager.swift in Sources */,
+				CCC16B2E279F02FA004DBCB6 /* Category.swift in Sources */,
 				CCD53150279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */,
 				CCD531322799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95632790486500E01F5C /* UserView.swift in Sources */,
@@ -510,10 +532,12 @@
 				CCD53160279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */,
 				CCD531452799FC6100D6ED4B /* CarbonItemViewModel.swift in Sources */,
 				CCD53156279B13E000D6ED4B /* MainView.swift in Sources */,
+				CCC16B35279F07C4004DBCB6 /* CategoryRowView.swift in Sources */,
 				CCD5313F2799F94400D6ED4B /* ConfigurationManager.swift in Sources */,
 				CCD531422799FBBE00D6ED4B /* CarbonItemListView.swift in Sources */,
 				CCD5315A279B141D00D6ED4B /* MapView.swift in Sources */,
 				CCD531302799CAD900D6ED4B /* NetworkManager.swift in Sources */,
+				CCC16B2F279F02FA004DBCB6 /* Category.swift in Sources */,
 				CCD53151279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */,
 				CCD531332799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95642790486500E01F5C /* UserView.swift in Sources */,

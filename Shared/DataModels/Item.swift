@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct Item: Hashable, Identifiable{
+struct Item: Identifiable{
     let id = UUID()
     let name: String?
     let totalPoste: Float?
     let unit: Unit?
     let unitStr: String?
+    let category: Category? = nil
 }

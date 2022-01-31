@@ -7,6 +7,6 @@
 
 import Foundation
 
-class ConfigurationManager {
-    private(set) var serverUrl = "http://localhost:8000/webapi/graphql"
+struct ConfigurationManager {
+    let serverUrl = URL(string: "http://localhost:8000/api/graphql")!
 }
