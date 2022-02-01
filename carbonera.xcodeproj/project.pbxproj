@@ -22,6 +22,8 @@
 		CCB2AA5827A99BD5000E41C1 /* CarbonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */; };
 		CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */; };
 		CCB2AA5C27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */; };
+		CCB2AA5E27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */; };
+		CCB2AA5F27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */; };
 		CCC16B2E279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
 		CCC16B2F279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
 		CCC16B31279F070E004DBCB6 /* categories.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B30279F070E004DBCB6 /* categories.graphql */; };
@@ -92,6 +94,7 @@
 		CC0B955F2790486500E01F5C /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonStore.swift; sourceTree = "<group>"; };
 		CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredCarbonItem.swift; sourceTree = "<group>"; };
+		CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemDrawerView.swift; sourceTree = "<group>"; };
 		CCC16B2D279F02FA004DBCB6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CCC16B30279F070E004DBCB6 /* categories.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = categories.graphql; sourceTree = "<group>"; };
 		CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowView.swift; sourceTree = "<group>"; };
@@ -293,6 +296,7 @@
 				CCD531402799FBBE00D6ED4B /* CarbonItemListView.swift */,
 				CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */,
 				CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */,
+				CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */,
 			);
 			path = CarbonItems;
 			sourceTree = "<group>";
@@ -534,6 +538,7 @@
 				CCD531322799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95632790486500E01F5C /* UserView.swift in Sources */,
 				CCD531352799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCB2AA5E27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */,
 				CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */,
 				CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
 				CCD5312C2799CAA700D6ED4B /* API.swift in Sources */,
@@ -560,6 +565,7 @@
 				CCD531332799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95642790486500E01F5C /* UserView.swift in Sources */,
 				CCD531362799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCB2AA5F27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */,
 				CCB2AA5C27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */,
 				CCD53169279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
 				CCD5312D2799CAA700D6ED4B /* API.swift in Sources */,

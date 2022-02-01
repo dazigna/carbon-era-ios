@@ -84,14 +84,22 @@ struct CarbonItemListView: View{
     @EnvironmentObject var viewModel: CarbonItemViewModel
     
     @State var category: Category
-    
+    @State private var isPresented = false
+    @State private var selectedItem: Item? = nil
     var body: some View {
         List(viewModel.items, id: \.id) { item in
-            CarbonItemRowView(carbonItem: item)
+            CarbonItemRowView(carbonItem: item).onTapGesture {
+                selectedItem = item
+            }
         }
         .emptyList(viewModel.items){
             Text("Loading items ...")
         }
+        .sheet(item: $selectedItem, onDismiss: {
+            selectedItem = nil
+        }, content: { item in
+            CarbonItemDrawerView(item: item)
+        })
 //        .searchable(text: $viewModel.searchText)
         .onDisappear{
             print("DISAPPEAR ITEMS")

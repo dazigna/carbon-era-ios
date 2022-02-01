@@ -18,4 +18,8 @@ struct Item: Identifiable{
     var id: String {
         cursor
     }
+    
+    static func fake() -> Item {
+        return Item(name: "Fake Item", totalPoste: 123.123, unit: Unit(name: "Unit", quantity: "QUANTITY"), unitStr: "unitstr", cursor: "cursor")
+    }
 }
