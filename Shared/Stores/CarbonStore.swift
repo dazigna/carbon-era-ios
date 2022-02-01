@@ -19,6 +19,7 @@ protocol StorageInterface {
 class CarbonStore: StorageInterface {
     
     private let queue = DispatchQueue(label: "SugarcubeFileIOQueue", qos: .background, attributes: .concurrent)
+    private var savedDirectoryUrl: URL
     private var savedFileUrl: URL
     
     public var content: [StoredCarbonItem] = []
@@ -32,7 +33,14 @@ class CarbonStore: StorageInterface {
         else {
             return nil
         }
-        self.savedFileUrl = applicationSupportUrl.appendingPathComponent(ConfigurationConstants.carbonItemsStoredFilename)
+        self.savedDirectoryUrl = applicationSupportUrl.appendingPathComponent(ConfigurationConstants.storeDirectory)
+        self.savedFileUrl = self.savedDirectoryUrl.appendingPathComponent(ConfigurationConstants.carbonItemsStoredFilename)
+
+        if !(FileManager.default.fileExists(atPath: self.savedDirectoryUrl.relativePath)) {
+              guard (try? FileManager.default.createDirectory(at: self.savedDirectoryUrl, withIntermediateDirectories: true, attributes: nil)) != nil else {
+                  return nil
+              }
+        }
         
         self.content = unsafeRead()
     }

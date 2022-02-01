@@ -16,20 +16,24 @@ struct CarbonItemDrawerView: View {
     @State private var currentDate = Date()
     
     var body: some View {
-        Text(item.name ?? "Item name")
-        Spacer()
-        Slider(value: $sliderValue,
-               in: 0...100,
-               onEditingChanged: { boolEdit in
+        VStack{
+            Spacer()
+            Text(item.name ?? "Item name")
+            Spacer()
+            Slider(value: $sliderValue,
+                   in: 0...100,
+                   onEditingChanged: { boolEdit in
+            })
+            Spacer()
+            TextField("Value", value: $textValue, format: .number).keyboardType(.decimalPad)
+            Spacer()
+            DatePicker("Date", selection: $currentDate, displayedComponents: [.date])
+            Spacer()
+            Button("Add", action: {
+                viewModel.addItemToStore(item: item, value: textValue)
+                dismiss()
+            })
         }
-        )
-        TextField("Value", value: $textValue, format: .number).keyboardType(.decimalPad)
-        Spacer()
-        DatePicker("Date", selection: $currentDate, displayedComponents: [.date])
-        Button("Add", action: {
-            viewModel.addItemToStore(item: item, value: textValue)
-            dismiss()
-        })
     }
 }
 
