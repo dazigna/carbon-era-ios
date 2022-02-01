@@ -13,50 +13,41 @@ protocol CarbonItemProtocol{
     func fetchCategories()
 }
 
-
 class CarbonItemViewModel: ObservableObject{
     
-    @Published var items: [Item]?
+    @Published var items: [Item] = []
     @Published var errorMsg: String?
     @Published var categories: [Category] = []
     @Published var subCategories: [Category] = []
     @Published var searchText: String = ""
     
     var networkManager: BaseNetworkInterface
+    var store: StorageInterface
     
     var categoryCursor: String? = nil
-
-    init(networkM: BaseNetworkInterface = NetworkManager()){
+    var itemsCursor: String? = nil
+    
+    let numberOfItemsToFetch = 20
+    
+    init(networkM: BaseNetworkInterface = NetworkManager(), store: StorageInterface = CarbonStore()!){
         self.networkManager = networkM
-    }
-//    func fetchItems(){
-//        self.networkManager.fetchItems().sink(onError: { err in
-//            self.errorMsg = err.localizedDescription
-//        }, receiveValue: { res in
-//
-//            self.items = self.extractItems(itemData: res.data?.allItems)
-//
-////            self.items = res.data?.allItems?.compactMap{ elem -> Item? in
-////                guard let item = elem,
-////                      let name = item.nameFr,
-////                      let poste = item.totalPoste,
-////                      let unitStr = item.unitStr
-////                else {return nil}
-////
-////                return Item(name: name,
-////                            totalPoste: Float(poste),
-////                            unit: Unit(name: item.unit?.name, quantity: item.unit?.quantity),
-////                            unitStr: unitStr)
-////            }
-//        })
-//    }
-//
-    
-    func cleanUpSubView(){
-        self.subCategories = []
+        self.store = store
     }
     
-    func fetchCategories(first: Int){
+    func cleanUpSubCategories(){
+        //Only clean up if items are non-existing
+        if(self.items.isEmpty){
+            self.subCategories = []
+            self.categoryCursor = nil
+        }
+    }
+    
+    func cleanUpItems(){
+        self.items = []
+        self.itemsCursor = nil
+    }
+    
+    func fetchCategories(first: Int = ConfigurationConstants.numberItemsToFetch){
         self.networkManager.fetchCategories(first: first, cursor: categoryCursor)
             .sink(onError: { err in
                 self.errorMsg = err.localizedDescription
@@ -78,7 +69,7 @@ class CarbonItemViewModel: ObservableObject{
     }
     
     
-    func fetchCategoriesForParent(parentName: String, first: Int){
+    func fetchCategoriesForParent(parentName: String, first: Int = ConfigurationConstants.numberItemsToFetch){
         self.networkManager.fetchCategoriesForParent(parentName: parentName, first: first, cursor: self.categoryCursor)
             .sink(onError: { err in
                 self.errorMsg = err.localizedDescription
@@ -95,19 +86,21 @@ class CarbonItemViewModel: ObservableObject{
 
             if let newCats = newCategories{
                 self.subCategories.append(contentsOf: newCats)
-                print(self.subCategories.map{$0.cursor})
             }
         })
     }
     
     func checkIfCategoryFetchNeeded(cat: Category){
         if self.categoryCursor == cat.cursor, let parent = cat.parent{
-            print("fetching")
+            print("fetching sub cats")
             self.fetchCategoriesForParent(parentName: parent, first: 20)
         }
     }
 
     func getParentCategories(){
+        if !self.categories.isEmpty{
+            return
+        }
         self.networkManager.fetchParentCategories()
             .sink(onError: { err in
                 self.errorMsg = err.localizedDescription
@@ -120,9 +113,9 @@ class CarbonItemViewModel: ObservableObject{
                 return Category(parent: it.parent?.name, name: it.name!, cursor: cur)
             }
 
-
             if let newCats = newCategories{
                 self.categories.append(contentsOf: newCats)
+                print(self.categories.map{$0.cursor})
             }
         })
     }
@@ -131,38 +124,43 @@ class CarbonItemViewModel: ObservableObject{
         return self.categories.filter{$0.parent == parentCategory.name}
     }
     
-    func getItemsForCategory(category: Category){
-//        return self.networkManager.fetchItemsByCategory(categoryName: category.name).sink(onError: { err in
-//            self.errorMsg = err.localizedDescription
-//        }, receiveValue: { res in
-//            print("received")
-//            self.items = res.data?.items?.compactMap{ elem -> Item? in
-//                guard let item = elem,
-//                      let name = item.nameFr,
-//                      let poste = item.totalPoste,
-//                      let unitStr = item.unitStr
-//                else {return nil}
-//
-//                return Item(name: name,
-//                            totalPoste: Float(poste),
-//                            unit: Unit(name: item.unit?.name, quantity: item.unit?.quantity),
-//                            unitStr: unitStr)
-//            }
-//        })
+    func fetchItems(forCategory category: Category, first: Int = ConfigurationConstants.numberItemsToFetch){
+        self.networkManager.fetchItemsForCategory(categoryName: category.name, first: first, cursor: self.itemsCursor)
+            .sink(onError: { err in
+                self.errorMsg = err.localizedDescription
+            }, receiveValue: { res in
+                self.itemsCursor = res.data?.items?.pageInfo.endCursor
+                
+                let nodes = res.data?.items?.edges.compactMap{($0?.node, $0?.cursor)}
+                
+                let newItems = nodes?.compactMap{(item, cursor) -> Item? in
+                    guard let it = item,
+                          let cur = cursor,
+                          let co2Value = it.totalPoste?.toFloat
+                    else { return nil }
+                    return Item(name: it.nameFr, totalPoste: co2Value, unit: Unit(name: it.unit?.name, quantity: it.unit?.quantity), unitStr: it.unitStr, cursor: cur)
+                }
+                
+                if let newIt = newItems{
+                    self.items.append(contentsOf: newIt)
+                }
+        })
     }
     
-//    func extractItems(itemData: [GetItemsQuery.Data.Items?]?) -> [Item]{
-//        return itemData?.compactMap{ elem -> Item? in
-//            guard let item = elem,
-//                  let name = item.nameFr,
-//                  let poste = item.totalPoste,
-//                  let unitStr = item.unitStr
-//            else {return nil}
-//
-//            return Item(name: name,
-//                        totalPoste: Float(poste),
-//                        unit: Unit(name: item.unit?.name, quantity: item.unit?.quantity),
-//                        unitStr: unitStr)
-//        } ?? []
-//    }
+    func addItemToStore(item: Item, value: Float){
+        self.store.write(StoredCarbonItem(name: item.name!, value: value, quantity: item.unit!.quantity!, cursor: item.cursor)){ res in
+            switch res {
+            case .success(_):
+                print("save success")
+            case .failure(let error):
+                print("Error save \(error)")
+            }
+        }
+    }
+}
+
+extension Double{
+    var toFloat: Float{
+        Float(self)
+    }
 }

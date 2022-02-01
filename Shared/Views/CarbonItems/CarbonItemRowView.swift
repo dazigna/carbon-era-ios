@@ -23,7 +23,7 @@ struct CarbonItemRowView: View {
 
 struct CarbonItemRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CarbonItemRowView(carbonItem: Item(name: "fake", totalPoste: 3.0, unit: nil, unitStr: "fake"))
+        CarbonItemRowView(carbonItem: Item(name: "fake", totalPoste: 3.0, unit: nil, unitStr: "fake", cursor: ""))
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

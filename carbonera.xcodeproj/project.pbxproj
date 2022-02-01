@@ -18,6 +18,10 @@
 		CC0B95652790486500E01F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B953B2790486500E01F5C /* Assets.xcassets */; };
 		CC0B95662790486500E01F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B953B2790486500E01F5C /* Assets.xcassets */; };
 		CC0B957727904B9400E01F5C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = CC0B957627904B9400E01F5C /* Apollo */; };
+		CCB2AA5727A99BD5000E41C1 /* CarbonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */; };
+		CCB2AA5827A99BD5000E41C1 /* CarbonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */; };
+		CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */; };
+		CCB2AA5C27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */; };
 		CCC16B2E279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
 		CCC16B2F279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
 		CCC16B31279F070E004DBCB6 /* categories.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B30279F070E004DBCB6 /* categories.graphql */; };
@@ -86,6 +90,8 @@
 		CC0B95592790486500E01F5C /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B955D2790486500E01F5C /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		CC0B955F2790486500E01F5C /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonStore.swift; sourceTree = "<group>"; };
+		CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredCarbonItem.swift; sourceTree = "<group>"; };
 		CCC16B2D279F02FA004DBCB6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CCC16B30279F070E004DBCB6 /* categories.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = categories.graphql; sourceTree = "<group>"; };
 		CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowView.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 				CCD5314B2799FFE900D6ED4B /* DataModels */,
 				CCD531492799FFD600D6ED4B /* Views */,
 				CCD5314A2799FFDC00D6ED4B /* ViewModels */,
+				CCB2AA5927A99BDA000E41C1 /* Stores */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -214,6 +221,14 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		CCB2AA5927A99BDA000E41C1 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
 		CCD531492799FFD600D6ED4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +257,7 @@
 				CCD531342799CCAF00D6ED4B /* Unit.swift */,
 				CCD531372799CCF300D6ED4B /* Error.swift */,
 				CCC16B2D279F02FA004DBCB6 /* Category.swift */,
+				CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -518,9 +534,11 @@
 				CCD531322799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95632790486500E01F5C /* UserView.swift in Sources */,
 				CCD531352799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */,
 				CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
 				CCD5312C2799CAA700D6ED4B /* API.swift in Sources */,
 				CCD531382799CCF300D6ED4B /* Error.swift in Sources */,
+				CCB2AA5727A99BD5000E41C1 /* CarbonStore.swift in Sources */,
 				CC0B95612790486500E01F5C /* carboneraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,9 +560,11 @@
 				CCD531332799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95642790486500E01F5C /* UserView.swift in Sources */,
 				CCD531362799CCAF00D6ED4B /* Unit.swift in Sources */,
+				CCB2AA5C27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */,
 				CCD53169279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
 				CCD5312D2799CAA700D6ED4B /* API.swift in Sources */,
 				CCD531392799CCF300D6ED4B /* Error.swift in Sources */,
+				CCB2AA5827A99BD5000E41C1 /* CarbonStore.swift in Sources */,
 				CC0B95622790486500E01F5C /* carboneraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1439,7 +1439,7 @@ public final class GetItemsByCategoryQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query getItemsByCategory($categoryName: String, $cursor: String, $first: Int) {
+    query getItemsByCategory($categoryName: String!, $cursor: String, $first: Int) {
       items(itemsByCategoryName: $categoryName, after: $cursor, first: $first) {
         __typename
         edges {
@@ -1461,7 +1461,7 @@ public final class GetItemsByCategoryQuery: GraphQLQuery {
 
   public let operationName: String = "getItemsByCategory"
 
-  public let operationIdentifier: String? = "ebfe2980cf47122a4fe0f97038f3d4e7317ae3c1e425ddb22dc47776a99f6510"
+  public let operationIdentifier: String? = "6900e7db61ed965a0a2e4bb7a8028199a6844268b2accf0de8dd45ce73c8db1d"
 
   public var queryDocument: String {
     var document: String = operationDefinition
@@ -1470,11 +1470,11 @@ public final class GetItemsByCategoryQuery: GraphQLQuery {
     return document
   }
 
-  public var categoryName: String?
+  public var categoryName: String
   public var cursor: String?
   public var first: Int?
 
-  public init(categoryName: String? = nil, cursor: String? = nil, first: Int? = nil) {
+  public init(categoryName: String, cursor: String? = nil, first: Int? = nil) {
     self.categoryName = categoryName
     self.cursor = cursor
     self.first = first

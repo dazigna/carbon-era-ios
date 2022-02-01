@@ -8,10 +8,14 @@
 import Foundation
 
 struct Item: Identifiable{
-    let id = UUID()
     let name: String?
     let totalPoste: Float?
     let unit: Unit?
     let unitStr: String?
     let category: Category? = nil
+    var cursor: String
+    
+    var id: String {
+        cursor
+    }
 }

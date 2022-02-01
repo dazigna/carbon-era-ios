@@ -37,24 +37,23 @@ extension Publisher where Failure == Never {
 }
 
 protocol BaseNetworkInterface{
-//    func fetchItems() -> Publishers.ApolloFetch<GetItemsQuery>
+    func fetchItemsForCategory(categoryName: String, first: Int?, cursor: String?) -> Publishers.ApolloFetch<GetItemsByCategoryQuery>
     func fetchParentCategories() -> Publishers.ApolloFetch<GetParentCategoriesQuery>
     func fetchCategoriesForParent(parentName: String, first: Int, cursor: String?) -> Publishers.ApolloFetch<GetCategoriesForParentQuery>
     func fetchCategories(first: Int, cursor: String?) -> Publishers.ApolloFetch<GetCategoriesQuery>
-    func fetchItemsByCategory(categoryName: String) -> Publishers.ApolloFetch<GetItemsByCategoryQuery>
 }
 
 class NetworkManager: BaseNetworkInterface{
     
     private var client: ApolloClient
     
-    init(client: ApolloClient = ApolloClient(url: ConfigurationManager().serverUrl)){
+    init(client: ApolloClient = ApolloClient(url: ConfigurationConstants.serverUrl)){
         self.client = client
     }
     
-//    func fetchItems() -> Publishers.ApolloFetch<GetItemsQuery> {
-//        return self.client.fetchPublisher(query: GetItemsQuery())
-//    }
+    func fetchItemsForCategory(categoryName: String, first: Int? = nil, cursor: String? = nil) -> Publishers.ApolloFetch<GetItemsByCategoryQuery> {
+        return self.client.fetchPublisher(query: GetItemsByCategoryQuery(categoryName: categoryName, cursor: cursor, first: first))
+    }
     
     func fetchCategories(first: Int, cursor: String? = nil) -> Publishers.ApolloFetch<GetCategoriesQuery> {
         return self.client.fetchPublisher(query: GetCategoriesQuery(cursor: cursor, first: first))
@@ -66,9 +65,5 @@ class NetworkManager: BaseNetworkInterface{
     
     func fetchParentCategories() -> Publishers.ApolloFetch<GetParentCategoriesQuery>{
         return self.client.fetchPublisher(query: GetParentCategoriesQuery())
-    }
-    
-    func fetchItemsByCategory(categoryName: String) -> Publishers.ApolloFetch<GetItemsByCategoryQuery> {
-        return self.client.fetchPublisher(query: GetItemsByCategoryQuery(categoryName: categoryName))
     }
 }
