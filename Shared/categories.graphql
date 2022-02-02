@@ -1,47 +1,35 @@
-fragment categoryDetails on CategoryNode{
-  name
-  parent{
-    name
+fragment categoryDetails on CategoryNodeConnection {
+  edges {
+    node {
+      uuid
+      name
+      parent {
+        name
+        uuid
+      }
+    }
+    cursor
+  }
+  pageInfo {
+    endCursor
+    hasNextPage
   }
 }
 
-query getCategories($cursor: String, $first: Int){
-  categories(after: $cursor, first: $first){
-    edges{
-      node{
-        ...categoryDetails
-      }
-      cursor
-    }
-    pageInfo{
-      endCursor
-      hasNextPage
-    }
+query getCategories($cursor: String, $first: Int) {
+  categories(after: $cursor, first: $first) {
+    ...categoryDetails
   }
 }
 
-query getParentCategories{
-  categories(parent_Name_Isnull: true){
-    edges{
-      node{
-         ...categoryDetails
-      }
-      cursor
-    }
+query getParentCategories {
+  categories(parent_Name_Isnull: true) {
+    ...categoryDetails
   }
 }
 
-query getCategoriesForParent($parentName: String!, $cursor: String, $first: Int!){
-  categories(parent_Name: $parentName, after: $cursor, first: $first){
-    edges{
-      node{
-        ...categoryDetails
-      }
-      cursor
-    }
-    pageInfo{
-      endCursor
-      hasNextPage
-    }
+query getCategoriesForParent($parentName: String!, $cursor: String, $first: Int!) {
+  categories(parent_Name: $parentName, after: $cursor, first: $first) {
+    ...categoryDetails
   }
 }

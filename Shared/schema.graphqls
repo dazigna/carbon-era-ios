@@ -3,17 +3,17 @@ type Query {
     """The ID of the object"""
     id: ID!
   ): CategoryNode
-  categories(offset: Int, before: String, after: String, first: Int, last: Int, name: String, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection
+  categories(offset: Int, before: String, after: String, first: Int, last: Int, name: String, uuid: UUID, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection
   item(
     """The ID of the object"""
     id: ID!
   ): ItemNode
-  items(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, itemsByCategoryName: String): ItemNodeConnection
+  items(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String): ItemNodeConnection
   unit(
     """The ID of the object"""
     id: ID!
   ): UnitNode
-  units(offset: Int, before: String, after: String, first: Int, last: Int, name: String, quantity: String): UnitNodeConnection
+  units(offset: Int, before: String, after: String, first: Int, last: Int, name: String, quantity: String, uuid: UUID): UnitNodeConnection
 }
 
 type CategoryNode implements Node {
@@ -24,13 +24,16 @@ type CategoryNode implements Node {
   parent: CategoryNode
 
   """"""
+  uuid: UUID!
+
+  """"""
   name: String
 
   """"""
-  children(offset: Int, before: String, after: String, first: Int, last: Int, name: String, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection!
+  children(offset: Int, before: String, after: String, first: Int, last: Int, name: String, uuid: UUID, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection!
 
   """"""
-  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, itemsByCategoryName: String): ItemNodeConnection!
+  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String): ItemNodeConnection!
 }
 
 """An object with an ID"""
@@ -38,6 +41,12 @@ interface Node {
   """The ID of the object."""
   id: ID!
 }
+
+"""
+Leverages the internal Python implmeentation of UUID (uuid.UUID) to provide native UUID objects
+in fields, resolvers and input.
+"""
+scalar UUID
 
 type CategoryNodeConnection {
   """Pagination data for this connection."""
@@ -93,6 +102,9 @@ type ItemNodeEdge {
 type ItemNode implements Node {
   """The ID of the object."""
   id: ID!
+
+  """"""
+  uuid: UUID!
 
   """"""
   nameFr: String
@@ -154,6 +166,9 @@ type UnitNode implements Node {
   id: ID!
 
   """"""
+  uuid: UUID!
+
+  """"""
   name: String
 
   """"""
@@ -169,7 +184,7 @@ type UnitNode implements Node {
   attribute: JSONString
 
   """"""
-  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, itemsByCategoryName: String): ItemNodeConnection!
+  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String): ItemNodeConnection!
 }
 
 """

@@ -41,7 +41,7 @@ class CarbonStore: StorageInterface {
                   return nil
               }
         }
-        
+        print("Saving url is \(self.savedFileUrl.absoluteString)" )
         self.content = unsafeRead()
     }
     

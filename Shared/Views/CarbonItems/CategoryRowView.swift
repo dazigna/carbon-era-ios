@@ -20,7 +20,7 @@ struct CategoryRowView: View {
 
 struct CategoryRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryRowView(category: Category(parent: "parent", name: "Category", cursor: ""))
+        CategoryRowView(category: Category.fake())
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

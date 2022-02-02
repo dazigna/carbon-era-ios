@@ -37,10 +37,11 @@ extension Publisher where Failure == Never {
 }
 
 protocol BaseNetworkInterface{
-    func fetchItemsForCategory(categoryName: String, first: Int?, cursor: String?) -> Publishers.ApolloFetch<GetItemsByCategoryQuery>
-    func fetchParentCategories() -> Publishers.ApolloFetch<GetParentCategoriesQuery>
-    func fetchCategoriesForParent(parentName: String, first: Int, cursor: String?) -> Publishers.ApolloFetch<GetCategoriesForParentQuery>
-    func fetchCategories(first: Int, cursor: String?) -> Publishers.ApolloFetch<GetCategoriesQuery>
+    func fetchItemsForCategory(categoryName: String, first: Int?, cursor: String?) -> Publishers.ApolloFetch<GraphCarbon.GetItemsByCategoryQuery>
+    func fetchParentCategories() -> Publishers.ApolloFetch<GraphCarbon.GetParentCategoriesQuery>
+    func fetchCategoriesForParent(parentName: String, first: Int, cursor: String?) -> Publishers.ApolloFetch<GraphCarbon.GetCategoriesForParentQuery>
+    func fetchCategories(first: Int, cursor: String?) -> Publishers.ApolloFetch<GraphCarbon.GetCategoriesQuery>
+    func fecthUnits() -> Publishers.ApolloFetch<GraphCarbon.GetUnitsQuery>
 }
 
 class NetworkManager: BaseNetworkInterface{
@@ -51,19 +52,23 @@ class NetworkManager: BaseNetworkInterface{
         self.client = client
     }
     
-    func fetchItemsForCategory(categoryName: String, first: Int? = nil, cursor: String? = nil) -> Publishers.ApolloFetch<GetItemsByCategoryQuery> {
-        return self.client.fetchPublisher(query: GetItemsByCategoryQuery(categoryName: categoryName, cursor: cursor, first: first))
+    func fetchItemsForCategory(categoryName: String, first: Int? = nil, cursor: String? = nil) -> Publishers.ApolloFetch<GraphCarbon.GetItemsByCategoryQuery> {
+        return self.client.fetchPublisher(query: GraphCarbon.GetItemsByCategoryQuery(categoryName: categoryName, cursor: cursor, first: first))
     }
     
-    func fetchCategories(first: Int, cursor: String? = nil) -> Publishers.ApolloFetch<GetCategoriesQuery> {
-        return self.client.fetchPublisher(query: GetCategoriesQuery(cursor: cursor, first: first))
+    func fetchCategories(first: Int, cursor: String? = nil) -> Publishers.ApolloFetch<GraphCarbon.GetCategoriesQuery> {
+        return self.client.fetchPublisher(query: GraphCarbon.GetCategoriesQuery(cursor: cursor, first: first))
     }
     
-    func fetchCategoriesForParent(parentName: String, first: Int, cursor: String? = nil) -> Publishers.ApolloFetch<GetCategoriesForParentQuery> {
-        return self.client.fetchPublisher(query: GetCategoriesForParentQuery(parentName: parentName, cursor: cursor, first: first))
+    func fetchCategoriesForParent(parentName: String, first: Int, cursor: String? = nil) -> Publishers.ApolloFetch<GraphCarbon.GetCategoriesForParentQuery> {
+        return self.client.fetchPublisher(query: GraphCarbon.GetCategoriesForParentQuery(parentName: parentName, cursor: cursor, first: first))
     }
     
-    func fetchParentCategories() -> Publishers.ApolloFetch<GetParentCategoriesQuery>{
-        return self.client.fetchPublisher(query: GetParentCategoriesQuery())
+    func fetchParentCategories() -> Publishers.ApolloFetch<GraphCarbon.GetParentCategoriesQuery>{
+        return self.client.fetchPublisher(query: GraphCarbon.GetParentCategoriesQuery())
+    }
+    
+    func fecthUnits() -> Publishers.ApolloFetch<GraphCarbon.GetUnitsQuery>{
+        return self.client.fetchPublisher(query: GraphCarbon.GetUnitsQuery())
     }
 }

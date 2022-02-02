@@ -24,6 +24,8 @@
 		CCB2AA5C27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */; };
 		CCB2AA5E27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */; };
 		CCB2AA5F27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */; };
+		CCB2AA6227AB1B01000E41C1 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA6127AB1B01000E41C1 /* GraphQLAPI.swift */; };
+		CCB2AA6327AB1B01000E41C1 /* GraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA6127AB1B01000E41C1 /* GraphQLAPI.swift */; };
 		CCC16B2E279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
 		CCC16B2F279F02FA004DBCB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B2D279F02FA004DBCB6 /* Category.swift */; };
 		CCC16B31279F070E004DBCB6 /* categories.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B30279F070E004DBCB6 /* categories.graphql */; };
@@ -32,8 +34,6 @@
 		CCC16B35279F07C4004DBCB6 /* CategoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */; };
 		CCC16B3727A1FBDA004DBCB6 /* units.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B3627A1FBDA004DBCB6 /* units.graphql */; };
 		CCC16B3827A1FBDA004DBCB6 /* units.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CCC16B3627A1FBDA004DBCB6 /* units.graphql */; };
-		CCD5312C2799CAA700D6ED4B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312B2799CAA700D6ED4B /* API.swift */; };
-		CCD5312D2799CAA700D6ED4B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312B2799CAA700D6ED4B /* API.swift */; };
 		CCD5312F2799CAD900D6ED4B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */; };
 		CCD531302799CAD900D6ED4B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */; };
 		CCD531322799CC2900D6ED4B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD531312799CC2900D6ED4B /* Item.swift */; };
@@ -95,6 +95,8 @@
 		CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonStore.swift; sourceTree = "<group>"; };
 		CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredCarbonItem.swift; sourceTree = "<group>"; };
 		CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemDrawerView.swift; sourceTree = "<group>"; };
+		CCB2AA6027AB1A6B000E41C1 /* ApolloCodegen */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ApolloCodegen; sourceTree = "<group>"; };
+		CCB2AA6127AB1B01000E41C1 /* GraphQLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAPI.swift; sourceTree = "<group>"; };
 		CCC16B2D279F02FA004DBCB6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CCC16B30279F070E004DBCB6 /* categories.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = categories.graphql; sourceTree = "<group>"; };
 		CCC16B33279F07C4004DBCB6 /* CategoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowView.swift; sourceTree = "<group>"; };
@@ -102,7 +104,6 @@
 		CCD531272799C93F00D6ED4B /* introspection_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = introspection_response.json; sourceTree = "<group>"; };
 		CCD531282799C93F00D6ED4B /* schema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		CCD5312A2799C9C000D6ED4B /* items.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = items.graphql; sourceTree = "<group>"; };
-		CCD5312B2799CAA700D6ED4B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CCD5312E2799CAD900D6ED4B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CCD531312799CC2900D6ED4B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CCD531342799CCAF00D6ED4B /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 		CC0B95332790486400E01F5C = {
 			isa = PBXGroup;
 			children = (
+				CCB2AA6027AB1A6B000E41C1 /* ApolloCodegen */,
 				CCD53152279B132B00D6ED4B /* carbonera--iOS--Info.plist */,
 				CC0B95382790486400E01F5C /* Shared */,
 				CC0B95472790486500E01F5C /* macOS */,
@@ -172,7 +174,7 @@
 			children = (
 				CC0B95392790486400E01F5C /* carboneraApp.swift */,
 				CCD531272799C93F00D6ED4B /* introspection_response.json */,
-				CCD5312B2799CAA700D6ED4B /* API.swift */,
+				CCB2AA6127AB1B01000E41C1 /* GraphQLAPI.swift */,
 				CCD531282799C93F00D6ED4B /* schema.graphqls */,
 				CC0B953B2790486500E01F5C /* Assets.xcassets */,
 				CCD5312A2799C9C000D6ED4B /* items.graphql */,
@@ -535,13 +537,13 @@
 				CCD5312F2799CAD900D6ED4B /* NetworkManager.swift in Sources */,
 				CCC16B2E279F02FA004DBCB6 /* Category.swift in Sources */,
 				CCD53150279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */,
+				CCB2AA6227AB1B01000E41C1 /* GraphQLAPI.swift in Sources */,
 				CCD531322799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95632790486500E01F5C /* UserView.swift in Sources */,
 				CCD531352799CCAF00D6ED4B /* Unit.swift in Sources */,
 				CCB2AA5E27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */,
 				CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */,
 				CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
-				CCD5312C2799CAA700D6ED4B /* API.swift in Sources */,
 				CCD531382799CCF300D6ED4B /* Error.swift in Sources */,
 				CCB2AA5727A99BD5000E41C1 /* CarbonStore.swift in Sources */,
 				CC0B95612790486500E01F5C /* carboneraApp.swift in Sources */,
@@ -562,13 +564,13 @@
 				CCD531302799CAD900D6ED4B /* NetworkManager.swift in Sources */,
 				CCC16B2F279F02FA004DBCB6 /* Category.swift in Sources */,
 				CCD53151279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */,
+				CCB2AA6327AB1B01000E41C1 /* GraphQLAPI.swift in Sources */,
 				CCD531332799CC2900D6ED4B /* Item.swift in Sources */,
 				CC0B95642790486500E01F5C /* UserView.swift in Sources */,
 				CCD531362799CCAF00D6ED4B /* Unit.swift in Sources */,
 				CCB2AA5F27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */,
 				CCB2AA5C27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */,
 				CCD53169279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
-				CCD5312D2799CAA700D6ED4B /* API.swift in Sources */,
 				CCD531392799CCF300D6ED4B /* Error.swift in Sources */,
 				CCB2AA5827A99BD5000E41C1 /* CarbonStore.swift in Sources */,
 				CC0B95622790486500E01F5C /* carboneraApp.swift in Sources */,

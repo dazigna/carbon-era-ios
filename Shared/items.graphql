@@ -1,46 +1,34 @@
 query getItems($cursor: String, $first: Int) {
   items(after: $cursor, first: $first) {
-    edges {
-      node {
-        ...itemDetails
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
+    ...itemDetails
   }
 }
 
 query getItemsByCategory($categoryName: String!, $cursor: String, $first: Int) {
   items(itemsByCategoryName: $categoryName, after: $cursor, first: $first) {
-    edges {
-      node {
-        ...itemDetails
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
+    ...itemDetails
   }
 }
 
-
-fragment itemDetails on ItemNode {
-  id
-  nameFr
-  totalPoste
-  unitStr
-  categoryStr
-  confidence
-  tagFr
-  attributeFr
-  unit{
-      ...unitDetails
+fragment itemDetails on ItemNodeConnection {
+  edges {
+    node {
+      uuid
+      nameFr
+      totalPoste
+      unitStr
+      categoryStr
+      confidence
+      tagFr
+      attributeFr
+      unit {
+        ...unitDetails
+      }
     }
+    cursor
+  }
+  pageInfo {
+    endCursor
+    hasNextPage
+  }
 }
-
-

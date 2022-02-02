@@ -1,4 +1,5 @@
 fragment unitDetails on UnitNode{
+  uuid
   name
   quantity
   numerator

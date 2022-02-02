@@ -7,20 +7,13 @@
 
 import Foundation
 
-struct Category: Identifiable, Hashable {
+struct Category: Identifiable {
+    let id: UUID
     let parent: String?
     let name: String
-    let children: [Category]? = nil
     let cursor: String
     
-    var id: String {
-       cursor
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-
-    static func == (lhs: Category, rhs: Category) -> Bool {
-        lhs.id == rhs.id
+    static func fake() -> Category {
+        return Category(id: UUID(), parent: "fakeParent", name: "fakeCat", cursor: "fakeCursor")
     }
 }

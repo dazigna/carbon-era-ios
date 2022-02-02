@@ -7,13 +7,24 @@
 
 import Foundation
 
-struct Unit: Identifiable{
-    let id = UUID()
-    let name: String?
-    let quantity: String?
+enum UnitType: String, Codable {
+    case energy = "ENERGY"
+    case mass = "MASS"
+    case volume = "VOLUME"
+    case area = "AREA"
+    case distance = "DISTANCE"
+    case time = "TIME"
+    case quantity = "QUANTITY"
+}
+
+struct Unit: Identifiable, Codable{
+    let id: UUID
+    let name: String
+    let type: UnitType
+    let numerator: String
+    let denominator: String
     
-    init(name: String? = nil, quantity: String? = nil){
-        self.name = name
-        self.quantity = quantity
+    static func fake() -> Unit{
+        return Unit(id: UUID(), name: "fakeUnit", type: .mass, numerator: "String", denominator: "String")
     }
 }

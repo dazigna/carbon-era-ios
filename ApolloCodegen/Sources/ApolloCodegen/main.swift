@@ -64,8 +64,17 @@ struct SwiftScript: ParsableCommand {
             try FileManager.default.apollo.createFolderIfNeeded(at: targetRootURL)
 
             // Create the Codegen options object. This default setup assumes `schema.graphqls` is in the target root folder, all queries are in some kind of subfolder of the target folder and will output as a single file to `API.swift` in the target folder. For alternate setup options, check out https://www.apollographql.com/docs/ios/api/ApolloCodegenLib/structs/ApolloCodegenOptions/
-            let codegenOptions = ApolloCodegenOptions(targetRootURL: targetRootURL)
+//            let codegenOptions = ApolloCodegenOptions(targetRootURL: targetRootURL)
             
+            let schema = targetRootURL.appendingPathComponent("schema.graphqls")
+            let outputFileURL = targetRootURL.appendingPathComponent("GraphQLAPI.swift")
+            let operationIDsURL = targetRootURL.appendingPathComponent("operationIDs.json")
+        
+            let codegenOptions = ApolloCodegenOptions(namespace: "GraphCarbon",
+                                  operationIDsURL: operationIDsURL,
+                                  outputFormat: .singleFile(atFileURL: outputFileURL),
+                                  urlToSchemaFile: schema)
+
             // Actually attempt to generate code.
             try ApolloCodegen.run(from: targetRootURL,
                                   with: fileStructure.cliFolderURL,
