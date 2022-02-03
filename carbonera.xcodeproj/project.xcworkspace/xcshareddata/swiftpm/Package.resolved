@@ -20,21 +20,21 @@
         }
       },
       {
+        "package": "PartialSheet",
+        "repositoryURL": "https://github.com/AndreaMiotto/PartialSheet",
+        "state": {
+          "branch": null,
+          "revision": "422d748bfb149b2af4b48e43b7b6197bd8a727c1",
+          "version": "2.1.14"
+        }
+      },
+      {
         "package": "SQLite.swift",
         "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
         "state": {
           "branch": null,
           "revision": "60a65015f6402b7c34b9a924f755ca0a73afeeaa",
           "version": "0.13.1"
-        }
-      },
-      {
-        "package": "swift-argument-parser",
-        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
-        "state": {
-          "branch": null,
-          "revision": "9564d61b08a5335ae0a36f789a7d71493eacadfc",
-          "version": "0.3.2"
         }
       }
     ]

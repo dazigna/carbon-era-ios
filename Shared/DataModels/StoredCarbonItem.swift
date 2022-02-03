@@ -9,7 +9,8 @@ import Foundation
 
 struct StoredCarbonItem: Codable {
     let name: String
-    let value: Float
-    let quantity: String
+    let measure: Measurement<UnitMass>
+    let type: String
     let cursor: String
+    let date: Date
 }

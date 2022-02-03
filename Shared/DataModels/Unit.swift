@@ -25,6 +25,6 @@ struct Unit: Identifiable, Codable{
     let denominator: String
     
     static func fake() -> Unit{
-        return Unit(id: UUID(), name: "fakeUnit", type: .mass, numerator: "String", denominator: "String")
+        return Unit(id: UUID(), name: "fakeUnit", type: .mass, numerator: "numerator", denominator: "denom")
     }
 }

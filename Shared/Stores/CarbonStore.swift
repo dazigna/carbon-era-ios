@@ -43,6 +43,8 @@ class CarbonStore: StorageInterface {
         }
         print("Saving url is \(self.savedFileUrl.absoluteString)" )
         self.content = unsafeRead()
+        print("Store content:")
+        print(self.content)
     }
     
     func unsafeRead() -> [StoredCarbonItem] {

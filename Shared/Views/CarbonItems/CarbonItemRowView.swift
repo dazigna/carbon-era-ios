@@ -12,11 +12,11 @@ struct CarbonItemRowView: View {
     
     var body: some View {
         HStack{
-            Text(carbonItem.name!)
+            Text(carbonItem.name)
             Spacer()
-            Text("\(carbonItem.totalPoste!)")
+            Text("\(carbonItem.totalPoste)")
             Spacer()
-            Text(carbonItem.unitStr!)
+            Text(carbonItem.unitStr)
         }
     }
 }

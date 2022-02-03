@@ -9,11 +9,11 @@ import Foundation
 
 struct Item: Identifiable{
     let id: UUID
-    let name: String?
-    let totalPoste: Float?
-    let unit: Unit?
-    let unitStr: String?
-    let category: Category? = nil
+    let name: String
+    let totalPoste: Double
+    let unit: Unit
+    let unitStr: String
+    let category: String
     let cursor: String
     
     static func fake() -> Item {
@@ -23,6 +23,7 @@ struct Item: Identifiable{
             totalPoste: 123.123,
             unit: Unit.fake(),
             unitStr: "unitstr",
+            category: "fakeCat",
             cursor: "cursor")
     }
 }

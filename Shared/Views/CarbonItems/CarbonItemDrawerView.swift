@@ -9,37 +9,48 @@ import SwiftUI
 
 struct CarbonItemDrawerView: View {
     @Environment(\.dismiss) var dismiss
+    @Binding var isPresented: Bool
     @EnvironmentObject var viewModel: CarbonItemViewModel
-    @State var item: Item
-    @State private var sliderValue = 50.0
-    @State private var textValue: Float = 0.0
+    @State private var textValue: Double = 0.0
     @State private var currentDate = Date()
     
     var body: some View {
-        VStack{
-            Spacer()
-            Text(item.name ?? "Item name")
-            Spacer()
-            Slider(value: $sliderValue,
-                   in: 0...100,
-                   onEditingChanged: { boolEdit in
-            })
-            Spacer()
-            TextField("Value", value: $textValue, format: .number).keyboardType(.decimalPad)
-            Spacer()
-            DatePicker("Date", selection: $currentDate, displayedComponents: [.date])
-            Spacer()
-            Button("Add", action: {
-                viewModel.addItemToStore(item: item, value: textValue)
-                dismiss()
-            })
-        }
+        VStack(alignment:.leading, spacing: 16){
+            Text(viewModel.selectedItem?.name ?? "name").font(.title)
+            Text(viewModel.selectedItem?.category ?? "category").font(.caption)
+            HStack(spacing: 16){
+                TextField("Value", value: $textValue, format: .number).keyboardType(.decimalPad)
+                    .background(.gray)
+                    .fixedSize(horizontal: true, vertical: false)
+                Text(viewModel.selectedItem?.unit.denominator ?? "Unit")
+                    .background(.brown)
+                Spacer()
+            }
+            HStack(alignment: .top){
+                DatePicker("Date", selection: $currentDate, displayedComponents: [.date])
+                    .datePickerStyle(CompactDatePickerStyle())
+                Spacer()
+            }
+            HStack{
+                Spacer()
+                Button("Add", action: {
+                    viewModel.addItemToStore(value: textValue, date: currentDate)
+                    dismiss()
+                    isPresented = false
+                })
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.accentColor)
+                    .cornerRadius(8)
+                Spacer()
+            }
+        }.padding()
     }
 }
 
 struct CarbonItemDrawerView_Previews: PreviewProvider {
     static var previews: some View {
-        CarbonItemDrawerView(item: Item.fake())
+        CarbonItemDrawerView(isPresented: .constant(true))
             .previewLayout(.fixed(width: 300, height: 700))
     }
 }

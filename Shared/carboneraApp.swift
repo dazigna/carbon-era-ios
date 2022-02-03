@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import PartialSheet
 @main
 struct carboneraApp: App {
     init(){
@@ -16,6 +16,8 @@ struct carboneraApp: App {
     var body: some Scene {
         WindowGroup{
             MainView()
+                .environmentObject(PartialSheetManager())
+
         }
     }
 }

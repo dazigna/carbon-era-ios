@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 struct CarbonView: View {
-    @StateObject var viewModel: CarbonItemViewModel
+    @EnvironmentObject var viewModel: CarbonItemViewModel
     
     var body: some View {
         NavigationView{
@@ -30,6 +31,7 @@ struct CategoryListView: View{
             NavigationLink {
                 SubCategoryListView(parentCategory: cat)
                     .onAppear{
+                        print("on appear subcats")
                         viewModel.fetchCategoriesForParent(parentName: cat.name)
                     }
             } label: {
@@ -44,6 +46,7 @@ struct CategoryListView: View{
         .onAppear{
             print("on Appear")
             self.viewModel.getParentCategories()
+            self.viewModel.fetchUnits()
         }
     }
 }
@@ -68,8 +71,8 @@ struct SubCategoryListView: View {
             }
             .isDetailLink(false)
         }
-        .emptyList(viewModel.categories){
-            Text("Loading categories ...")
+        .emptyList(viewModel.subCategories){
+            Text("Loading sub categories ...")
         }
         .navigationTitle(parentCategory.name)
         .onDisappear{
@@ -85,22 +88,21 @@ struct CarbonItemListView: View{
     
     @State var category: Category
     @State private var isPresented = false
-    @State private var selectedItem: Item? = nil
+
     var body: some View {
         List(viewModel.items, id: \.id) { item in
             CarbonItemRowView(carbonItem: item).onTapGesture {
-                selectedItem = item
+                print("item selected")
+                viewModel.selectedItem = item
+                self.isPresented = true
             }
         }
         .emptyList(viewModel.items){
             Text("Loading items ...")
         }
-        .sheet(item: $selectedItem, onDismiss: {
-            selectedItem = nil
-        }, content: { item in
-            CarbonItemDrawerView(item: item)
-        })
-//        .searchable(text: $viewModel.searchText)
+        .partialSheet(isPresented: $isPresented){
+            CarbonItemDrawerView(isPresented: $isPresented).environmentObject(viewModel)
+        }
         .onDisappear{
             print("DISAPPEAR ITEMS")
             viewModel.cleanUpItems()
@@ -112,6 +114,6 @@ struct CarbonItemListView: View{
 
 struct CarbonItemListView_Previews: PreviewProvider {
     static var previews: some View {
-        CarbonView(viewModel: CarbonItemViewModel())
+        CarbonView()
     }
 }
