@@ -14,6 +14,6 @@ struct Category: Identifiable {
     let cursor: String
     
     static func fake() -> Category {
-        return Category(id: UUID(), parent: "fakeParent", name: "fakeCat", cursor: "fakeCursor")
+        return Category(id: UUID(), parent: "fakeParent", name: "fake category", cursor: "fakeCursor")
     }
 }

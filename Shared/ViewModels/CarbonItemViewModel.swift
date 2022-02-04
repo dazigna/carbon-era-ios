@@ -16,14 +16,18 @@ protocol CarbonItemProtocol{
 
 class CarbonItemViewModel: ObservableObject{
     
-    @Published var items: [Item] = []
     @Published var categories: [Category] = []
-    @Published var subCategories: [Category] = []
-    @Published var searchText: String = ""
-    @Published var presentAlert: Bool = false
+    @Published var selectedCategory: Category? = nil
     
+    @Published var subCategories: [Category] = []
+    @Published var selectedSubCategory: Category? = nil
+    
+    @Published var items: [Item] = []
     @Published var selectedItem: Item? = nil
     
+    @Published var searchText: String = ""
+    @Published var presentAlert: Bool = false
+        
     var errorMsg: String?{
         didSet{
             if errorMsg != nil {
@@ -50,16 +54,14 @@ class CarbonItemViewModel: ObservableObject{
     }
     
     func cleanUpSubCategories(){
-        //Only clean up if items are non-existing
-        if(self.items.isEmpty){
-            self.subCategories = []
-            self.categoryCursor = nil
-        }
+        self.subCategories = []
+        self.subCategoryCursor = nil
     }
     
     func cleanUpItems(){
         self.items = []
         self.itemsCursor = nil
+        self.selectedItem = nil
     }
     
     func cleanError(){
@@ -77,22 +79,28 @@ class CarbonItemViewModel: ObservableObject{
         })
     }
 
-    func fetchCategoriesForParent(parentName: String, first: Int = ConfigurationConstants.numberItemsToFetch){
+    func fetchCategoriesForParent(){
+        guard let parent = self.selectedCategory else { return }
+        self.fetchCategoriesForParent(parentName: parent.name)
+    }
+    
+    private func fetchCategoriesForParent(parentName: String, first: Int = ConfigurationConstants.numberItemsToFetch){
         self.networkManager.fetchCategoriesForParent(parentName: parentName, first: first, cursor: self.subCategoryCursor)
             .sink(onError: { err in
                 self.errorMsg = err.localizedDescription
                 print(self.errorMsg)
         }, receiveValue: { res in
-            print("subcat \(parentName)")
-            
-            print(self.subCategoryCursor)
             self.subCategories.append(contentsOf: self.processCategories(result: res.data?.categories?.fragments.categoryDetails))
             self.subCategoryCursor = res.data?.categories?.pageInfo.endCursor
-            print(self.subCategories.count)
         })
     }
     
     func getParentCategories(){
+        if self.categories.contains(where: {$0.cursor ==  self.categoryCursor}){
+            print("NO FETCHING")
+            return
+        }
+        
         self.networkManager.fetchParentCategories()
             .sink(onError: { err in
                 self.errorMsg = err.localizedDescription
@@ -150,7 +158,12 @@ class CarbonItemViewModel: ObservableObject{
     }
     
     // MARK: - Items
-    func fetchItems(forCategory category: Category, first: Int = ConfigurationConstants.numberItemsToFetch){
+    func fetchItems(){
+        guard let subCat = self.selectedSubCategory else { return }
+        self.fetchItems(forCategory: subCat)
+    }
+    
+    private func fetchItems(forCategory category: Category, first: Int = ConfigurationConstants.numberItemsToFetch){
         self.networkManager.fetchItemsForCategory(categoryName: category.name, first: first, cursor: self.itemsCursor)
             .sink(onError: { err in
                 self.errorMsg = err.localizedDescription
@@ -159,6 +172,13 @@ class CarbonItemViewModel: ObservableObject{
         })
     }
     
+    func checkIfItemFetchNeeded(item: Item){
+        if self.itemsCursor == item.cursor{
+            print("fetching new items")
+            self.fetchItems()
+        }
+    }
+
     func processItems(result: GraphCarbon.ItemDetails?){
         guard let res = result else { return }
         self.itemsCursor = res.pageInfo.endCursor
@@ -174,7 +194,10 @@ class CarbonItemViewModel: ObservableObject{
                   let unit = unwrapUnit(u: it.unit?.fragments.unitDetails),
                   let unitstr = it.unitStr,
                   let cat = it.categoryStr
-            else { return nil }
+            else {
+                print("Issue parsing items")
+                return nil
+            }
             return Item(
                 id: uuid,
                 name: name,
@@ -184,7 +207,8 @@ class CarbonItemViewModel: ObservableObject{
                 category: cat,
                 cursor: cur)
         }
-
+        
+        print("New items: \(newItems.count)")
         self.items.append(contentsOf: newItems)
     }
     
@@ -201,6 +225,7 @@ class CarbonItemViewModel: ObservableObject{
         return Unit(id: uuid, name: name, type: type, numerator: num, denominator: den)
     }
     
+    // MARK: - Addition
     func addItemToStore(value: Double, date: Date){
         guard let item = selectedItem else { return }
         let measure = Measurement(value: item.totalPoste * value, unit: UnitMass.kgCO2e)

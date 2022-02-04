@@ -11,13 +11,12 @@ struct CarbonItemRowView: View {
     var carbonItem: Item
     
     var body: some View {
-        HStack{
-            Text(carbonItem.name)
+        HStack(spacing: 16){
+            Text(carbonItem.name).truncationMode(.tail)
             Spacer()
-            Text("\(carbonItem.totalPoste)")
-            Spacer()
-            Text(carbonItem.unitStr)
-        }
+            Text("\(carbonItem.totalPoste, specifier: "%.2f")")
+            Text("\(carbonItem.unit.numerator)/\(carbonItem.unit.denominator)").font(.caption)
+        }.padding()
     }
 }
 

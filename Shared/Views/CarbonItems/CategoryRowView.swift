@@ -14,6 +14,10 @@ struct CategoryRowView: View {
     var body: some View {
         HStack {
             Text(category.name)
+                .foregroundColor(.accentColor)
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundColor(Color( UIColor.lightGray))
         }
     }
 }
