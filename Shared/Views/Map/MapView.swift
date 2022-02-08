@@ -17,17 +17,17 @@ struct MapView: View {
 
     var body: some View {
         ZStack(alignment: .bottom){
-            Map(
-                coordinateRegion: $viewModel.userRegion,
-                interactionModes: .all,
-                showsUserLocation: true,
-                userTrackingMode: $trackingMode
-            )
+//            Map(
+//                coordinateRegion: $viewModel.userRegion,
+//                interactionModes: .all,
+//                showsUserLocation: true,
+//                userTrackingMode: $trackingMode
+//            )
             
             HStack{
                 Spacer()
                 LocationButton(.currentLocation){
-                    viewModel.requestLocation()
+//                    viewModel.requestLocation()
                 }
                 .labelStyle(.iconOnly)
                 .symbolVariant(.fill)
@@ -35,7 +35,7 @@ struct MapView: View {
             }
             .padding()
         }.onAppear{
-            viewModel.requestAuthorization()
+//            viewModel.requestAuthorization()
         }
         .padding()
     }

@@ -37,6 +37,8 @@ extension Publisher where Failure == Never {
 }
 
 protocol BaseNetworkInterface{
+    func searchItems(forName name: String) -> Publishers.ApolloFetch<GraphCarbon.SearchItemsQuery>
+    func getItem(forName name: String) -> Publishers.ApolloFetch<GraphCarbon.GetSingleItemQuery>
     func fetchItemsForCategory(categoryName: String, first: Int?, cursor: String?) -> Publishers.ApolloFetch<GraphCarbon.GetItemsByCategoryQuery>
     func fetchParentCategories() -> Publishers.ApolloFetch<GraphCarbon.GetParentCategoriesQuery>
     func fetchCategoriesForParent(parentName: String, first: Int, cursor: String?) -> Publishers.ApolloFetch<GraphCarbon.GetCategoriesForParentQuery>
@@ -70,5 +72,13 @@ class NetworkManager: BaseNetworkInterface{
     
     func fecthUnits() -> Publishers.ApolloFetch<GraphCarbon.GetUnitsQuery>{
         return self.client.fetchPublisher(query: GraphCarbon.GetUnitsQuery())
+    }
+    
+    func searchItems(forName name: String) -> Publishers.ApolloFetch<GraphCarbon.SearchItemsQuery>{
+        return self.client.fetchPublisher(query: GraphCarbon.SearchItemsQuery(searchName: name))
+    }
+    
+    func getItem(forName name: String) -> Publishers.ApolloFetch<GraphCarbon.GetSingleItemQuery>{
+        return self.client.fetchPublisher(query: GraphCarbon.GetSingleItemQuery(name: name))
     }
 }

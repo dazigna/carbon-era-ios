@@ -1997,6 +1997,942 @@ public enum GraphCarbon {
     }
   }
 
+  public final class SearchItemsQuery: GraphQLQuery {
+    /// The raw GraphQL definition of this operation.
+    public let operationDefinition: String =
+      """
+      query searchItems($searchName: String!) {
+        items(nameFr_Icontains: $searchName) {
+          __typename
+          ...itemDetails
+        }
+      }
+      """
+
+    public let operationName: String = "searchItems"
+
+    public let operationIdentifier: String? = "ec2cb176ed9d17402ddfbb32946fb29ed4102b36e78a6f0d49ce0fda02e634b1"
+
+    public var queryDocument: String {
+      var document: String = operationDefinition
+      document.append("\n" + ItemDetails.fragmentDefinition)
+      document.append("\n" + UnitDetails.fragmentDefinition)
+      return document
+    }
+
+    public var searchName: String
+
+    public init(searchName: String) {
+      self.searchName = searchName
+    }
+
+    public var variables: GraphQLMap? {
+      return ["searchName": searchName]
+    }
+
+    public struct Data: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Query"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("items", arguments: ["nameFr_Icontains": GraphQLVariable("searchName")], type: .object(Item.selections)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(items: Item? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Query", "items": items.flatMap { (value: Item) -> ResultMap in value.resultMap }])
+      }
+
+      public var items: Item? {
+        get {
+          return (resultMap["items"] as? ResultMap).flatMap { Item(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "items")
+        }
+      }
+
+      public struct Item: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["ItemNodeConnection"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("edges", type: .nonNull(.list(.object(Edge.selections)))),
+            GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(edges: [Edge?], pageInfo: PageInfo) {
+          self.init(unsafeResultMap: ["__typename": "ItemNodeConnection", "edges": edges.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } }, "pageInfo": pageInfo.resultMap])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// Contains the nodes in this connection.
+        public var edges: [Edge?] {
+          get {
+            return (resultMap["edges"] as! [ResultMap?]).map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } }
+          }
+          set {
+            resultMap.updateValue(newValue.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } }, forKey: "edges")
+          }
+        }
+
+        /// Pagination data for this connection.
+        public var pageInfo: PageInfo {
+          get {
+            return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var itemDetails: ItemDetails {
+            get {
+              return ItemDetails(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+
+        public struct Edge: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["ItemNodeEdge"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("node", type: .object(Node.selections)),
+              GraphQLField("cursor", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(node: Node? = nil, cursor: String) {
+            self.init(unsafeResultMap: ["__typename": "ItemNodeEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }, "cursor": cursor])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The item at the end of the edge
+          public var node: Node? {
+            get {
+              return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "node")
+            }
+          }
+
+          /// A cursor for use in pagination
+          public var cursor: String {
+            get {
+              return resultMap["cursor"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "cursor")
+            }
+          }
+
+          public struct Node: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["ItemNode"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("uuid", type: .nonNull(.scalar(String.self))),
+                GraphQLField("nameFr", type: .scalar(String.self)),
+                GraphQLField("totalPoste", type: .scalar(Double.self)),
+                GraphQLField("unitStr", type: .scalar(String.self)),
+                GraphQLField("categoryStr", type: .scalar(String.self)),
+                GraphQLField("confidence", type: .scalar(Int.self)),
+                GraphQLField("tagFr", type: .scalar(String.self)),
+                GraphQLField("attributeFr", type: .scalar(String.self)),
+                GraphQLField("unit", type: .object(Unit.selections)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(uuid: String, nameFr: String? = nil, totalPoste: Double? = nil, unitStr: String? = nil, categoryStr: String? = nil, confidence: Int? = nil, tagFr: String? = nil, attributeFr: String? = nil, unit: Unit? = nil) {
+              self.init(unsafeResultMap: ["__typename": "ItemNode", "uuid": uuid, "nameFr": nameFr, "totalPoste": totalPoste, "unitStr": unitStr, "categoryStr": categoryStr, "confidence": confidence, "tagFr": tagFr, "attributeFr": attributeFr, "unit": unit.flatMap { (value: Unit) -> ResultMap in value.resultMap }])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var uuid: String {
+              get {
+                return resultMap["uuid"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "uuid")
+              }
+            }
+
+            public var nameFr: String? {
+              get {
+                return resultMap["nameFr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "nameFr")
+              }
+            }
+
+            public var totalPoste: Double? {
+              get {
+                return resultMap["totalPoste"] as? Double
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "totalPoste")
+              }
+            }
+
+            public var unitStr: String? {
+              get {
+                return resultMap["unitStr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "unitStr")
+              }
+            }
+
+            public var categoryStr: String? {
+              get {
+                return resultMap["categoryStr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "categoryStr")
+              }
+            }
+
+            public var confidence: Int? {
+              get {
+                return resultMap["confidence"] as? Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "confidence")
+              }
+            }
+
+            public var tagFr: String? {
+              get {
+                return resultMap["tagFr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "tagFr")
+              }
+            }
+
+            public var attributeFr: String? {
+              get {
+                return resultMap["attributeFr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "attributeFr")
+              }
+            }
+
+            public var unit: Unit? {
+              get {
+                return (resultMap["unit"] as? ResultMap).flatMap { Unit(unsafeResultMap: $0) }
+              }
+              set {
+                resultMap.updateValue(newValue?.resultMap, forKey: "unit")
+              }
+            }
+
+            public struct Unit: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["UnitNode"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("uuid", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("name", type: .scalar(String.self)),
+                  GraphQLField("quantity", type: .scalar(String.self)),
+                  GraphQLField("numerator", type: .scalar(String.self)),
+                  GraphQLField("denominator", type: .scalar(String.self)),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(uuid: String, name: String? = nil, quantity: String? = nil, numerator: String? = nil, denominator: String? = nil) {
+                self.init(unsafeResultMap: ["__typename": "UnitNode", "uuid": uuid, "name": name, "quantity": quantity, "numerator": numerator, "denominator": denominator])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var uuid: String {
+                get {
+                  return resultMap["uuid"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "uuid")
+                }
+              }
+
+              public var name: String? {
+                get {
+                  return resultMap["name"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "name")
+                }
+              }
+
+              public var quantity: String? {
+                get {
+                  return resultMap["quantity"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "quantity")
+                }
+              }
+
+              public var numerator: String? {
+                get {
+                  return resultMap["numerator"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "numerator")
+                }
+              }
+
+              public var denominator: String? {
+                get {
+                  return resultMap["denominator"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "denominator")
+                }
+              }
+
+              public var fragments: Fragments {
+                get {
+                  return Fragments(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
+
+              public struct Fragments {
+                public private(set) var resultMap: ResultMap
+
+                public init(unsafeResultMap: ResultMap) {
+                  self.resultMap = unsafeResultMap
+                }
+
+                public var unitDetails: UnitDetails {
+                  get {
+                    return UnitDetails(unsafeResultMap: resultMap)
+                  }
+                  set {
+                    resultMap += newValue.resultMap
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        public struct PageInfo: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["PageInfo"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("endCursor", type: .scalar(String.self)),
+              GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(endCursor: String? = nil, hasNextPage: Bool) {
+            self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// When paginating forwards, the cursor to continue.
+          public var endCursor: String? {
+            get {
+              return resultMap["endCursor"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "endCursor")
+            }
+          }
+
+          /// When paginating forwards, are there more items?
+          public var hasNextPage: Bool {
+            get {
+              return resultMap["hasNextPage"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "hasNextPage")
+            }
+          }
+        }
+      }
+    }
+  }
+
+  public final class GetSingleItemQuery: GraphQLQuery {
+    /// The raw GraphQL definition of this operation.
+    public let operationDefinition: String =
+      """
+      query getSingleItem($name: String!) {
+        items(nameFr_Iexact: $name) {
+          __typename
+          ...itemDetails
+        }
+      }
+      """
+
+    public let operationName: String = "getSingleItem"
+
+    public let operationIdentifier: String? = "9e5255648dd2e099ceaadbaf4f781e680c8e56a4fe089581fe43c06cc931cbfa"
+
+    public var queryDocument: String {
+      var document: String = operationDefinition
+      document.append("\n" + ItemDetails.fragmentDefinition)
+      document.append("\n" + UnitDetails.fragmentDefinition)
+      return document
+    }
+
+    public var name: String
+
+    public init(name: String) {
+      self.name = name
+    }
+
+    public var variables: GraphQLMap? {
+      return ["name": name]
+    }
+
+    public struct Data: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Query"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("items", arguments: ["nameFr_Iexact": GraphQLVariable("name")], type: .object(Item.selections)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(items: Item? = nil) {
+        self.init(unsafeResultMap: ["__typename": "Query", "items": items.flatMap { (value: Item) -> ResultMap in value.resultMap }])
+      }
+
+      public var items: Item? {
+        get {
+          return (resultMap["items"] as? ResultMap).flatMap { Item(unsafeResultMap: $0) }
+        }
+        set {
+          resultMap.updateValue(newValue?.resultMap, forKey: "items")
+        }
+      }
+
+      public struct Item: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["ItemNodeConnection"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("edges", type: .nonNull(.list(.object(Edge.selections)))),
+            GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(edges: [Edge?], pageInfo: PageInfo) {
+          self.init(unsafeResultMap: ["__typename": "ItemNodeConnection", "edges": edges.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } }, "pageInfo": pageInfo.resultMap])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// Contains the nodes in this connection.
+        public var edges: [Edge?] {
+          get {
+            return (resultMap["edges"] as! [ResultMap?]).map { (value: ResultMap?) -> Edge? in value.flatMap { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } }
+          }
+          set {
+            resultMap.updateValue(newValue.map { (value: Edge?) -> ResultMap? in value.flatMap { (value: Edge) -> ResultMap in value.resultMap } }, forKey: "edges")
+          }
+        }
+
+        /// Pagination data for this connection.
+        public var pageInfo: PageInfo {
+          get {
+            return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var itemDetails: ItemDetails {
+            get {
+              return ItemDetails(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+
+        public struct Edge: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["ItemNodeEdge"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("node", type: .object(Node.selections)),
+              GraphQLField("cursor", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(node: Node? = nil, cursor: String) {
+            self.init(unsafeResultMap: ["__typename": "ItemNodeEdge", "node": node.flatMap { (value: Node) -> ResultMap in value.resultMap }, "cursor": cursor])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// The item at the end of the edge
+          public var node: Node? {
+            get {
+              return (resultMap["node"] as? ResultMap).flatMap { Node(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "node")
+            }
+          }
+
+          /// A cursor for use in pagination
+          public var cursor: String {
+            get {
+              return resultMap["cursor"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "cursor")
+            }
+          }
+
+          public struct Node: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["ItemNode"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("uuid", type: .nonNull(.scalar(String.self))),
+                GraphQLField("nameFr", type: .scalar(String.self)),
+                GraphQLField("totalPoste", type: .scalar(Double.self)),
+                GraphQLField("unitStr", type: .scalar(String.self)),
+                GraphQLField("categoryStr", type: .scalar(String.self)),
+                GraphQLField("confidence", type: .scalar(Int.self)),
+                GraphQLField("tagFr", type: .scalar(String.self)),
+                GraphQLField("attributeFr", type: .scalar(String.self)),
+                GraphQLField("unit", type: .object(Unit.selections)),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(uuid: String, nameFr: String? = nil, totalPoste: Double? = nil, unitStr: String? = nil, categoryStr: String? = nil, confidence: Int? = nil, tagFr: String? = nil, attributeFr: String? = nil, unit: Unit? = nil) {
+              self.init(unsafeResultMap: ["__typename": "ItemNode", "uuid": uuid, "nameFr": nameFr, "totalPoste": totalPoste, "unitStr": unitStr, "categoryStr": categoryStr, "confidence": confidence, "tagFr": tagFr, "attributeFr": attributeFr, "unit": unit.flatMap { (value: Unit) -> ResultMap in value.resultMap }])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var uuid: String {
+              get {
+                return resultMap["uuid"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "uuid")
+              }
+            }
+
+            public var nameFr: String? {
+              get {
+                return resultMap["nameFr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "nameFr")
+              }
+            }
+
+            public var totalPoste: Double? {
+              get {
+                return resultMap["totalPoste"] as? Double
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "totalPoste")
+              }
+            }
+
+            public var unitStr: String? {
+              get {
+                return resultMap["unitStr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "unitStr")
+              }
+            }
+
+            public var categoryStr: String? {
+              get {
+                return resultMap["categoryStr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "categoryStr")
+              }
+            }
+
+            public var confidence: Int? {
+              get {
+                return resultMap["confidence"] as? Int
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "confidence")
+              }
+            }
+
+            public var tagFr: String? {
+              get {
+                return resultMap["tagFr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "tagFr")
+              }
+            }
+
+            public var attributeFr: String? {
+              get {
+                return resultMap["attributeFr"] as? String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "attributeFr")
+              }
+            }
+
+            public var unit: Unit? {
+              get {
+                return (resultMap["unit"] as? ResultMap).flatMap { Unit(unsafeResultMap: $0) }
+              }
+              set {
+                resultMap.updateValue(newValue?.resultMap, forKey: "unit")
+              }
+            }
+
+            public struct Unit: GraphQLSelectionSet {
+              public static let possibleTypes: [String] = ["UnitNode"]
+
+              public static var selections: [GraphQLSelection] {
+                return [
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("uuid", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("name", type: .scalar(String.self)),
+                  GraphQLField("quantity", type: .scalar(String.self)),
+                  GraphQLField("numerator", type: .scalar(String.self)),
+                  GraphQLField("denominator", type: .scalar(String.self)),
+                ]
+              }
+
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public init(uuid: String, name: String? = nil, quantity: String? = nil, numerator: String? = nil, denominator: String? = nil) {
+                self.init(unsafeResultMap: ["__typename": "UnitNode", "uuid": uuid, "name": name, "quantity": quantity, "numerator": numerator, "denominator": denominator])
+              }
+
+              public var __typename: String {
+                get {
+                  return resultMap["__typename"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "__typename")
+                }
+              }
+
+              public var uuid: String {
+                get {
+                  return resultMap["uuid"]! as! String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "uuid")
+                }
+              }
+
+              public var name: String? {
+                get {
+                  return resultMap["name"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "name")
+                }
+              }
+
+              public var quantity: String? {
+                get {
+                  return resultMap["quantity"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "quantity")
+                }
+              }
+
+              public var numerator: String? {
+                get {
+                  return resultMap["numerator"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "numerator")
+                }
+              }
+
+              public var denominator: String? {
+                get {
+                  return resultMap["denominator"] as? String
+                }
+                set {
+                  resultMap.updateValue(newValue, forKey: "denominator")
+                }
+              }
+
+              public var fragments: Fragments {
+                get {
+                  return Fragments(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
+
+              public struct Fragments {
+                public private(set) var resultMap: ResultMap
+
+                public init(unsafeResultMap: ResultMap) {
+                  self.resultMap = unsafeResultMap
+                }
+
+                public var unitDetails: UnitDetails {
+                  get {
+                    return UnitDetails(unsafeResultMap: resultMap)
+                  }
+                  set {
+                    resultMap += newValue.resultMap
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        public struct PageInfo: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["PageInfo"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("endCursor", type: .scalar(String.self)),
+              GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(endCursor: String? = nil, hasNextPage: Bool) {
+            self.init(unsafeResultMap: ["__typename": "PageInfo", "endCursor": endCursor, "hasNextPage": hasNextPage])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// When paginating forwards, the cursor to continue.
+          public var endCursor: String? {
+            get {
+              return resultMap["endCursor"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "endCursor")
+            }
+          }
+
+          /// When paginating forwards, are there more items?
+          public var hasNextPage: Bool {
+            get {
+              return resultMap["hasNextPage"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "hasNextPage")
+            }
+          }
+        }
+      }
+    }
+  }
+
   public final class GetUnitsQuery: GraphQLQuery {
     /// The raw GraphQL definition of this operation.
     public let operationDefinition: String =

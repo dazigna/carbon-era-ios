@@ -10,6 +10,18 @@ query getItemsByCategory($categoryName: String!, $cursor: String, $first: Int) {
   }
 }
 
+query searchItems($searchName: String!){
+  items(nameFr_Icontains:$searchName){
+    ...itemDetails
+  }
+}
+
+query getSingleItem($name: String!){
+  items(nameFr_Iexact:$name){
+    ...itemDetails
+  }
+}
+
 fragment itemDetails on ItemNodeConnection {
   edges {
     node {

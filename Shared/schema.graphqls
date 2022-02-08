@@ -3,12 +3,12 @@ type Query {
     """The ID of the object"""
     id: ID!
   ): CategoryNode
-  categories(offset: Int, before: String, after: String, first: Int, last: Int, name: String, uuid: UUID, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection
+  categories(offset: Int, before: String, after: String, first: Int, last: Int, name_Iexact: String, uuid: UUID, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection
   item(
     """The ID of the object"""
     id: ID!
   ): ItemNode
-  items(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String): ItemNodeConnection
+  items(offset: Int, before: String, after: String, first: Int, last: Int, nameFr_Iexact: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String, search: String): ItemNodeConnection
   unit(
     """The ID of the object"""
     id: ID!
@@ -30,10 +30,10 @@ type CategoryNode implements Node {
   name: String
 
   """"""
-  children(offset: Int, before: String, after: String, first: Int, last: Int, name: String, uuid: UUID, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection!
+  children(offset: Int, before: String, after: String, first: Int, last: Int, name_Iexact: String, uuid: UUID, parent_Name: String, parent_Name_Isnull: Boolean): CategoryNodeConnection!
 
   """"""
-  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String): ItemNodeConnection!
+  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr_Iexact: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String, search: String): ItemNodeConnection!
 }
 
 """An object with an ID"""
@@ -184,7 +184,7 @@ type UnitNode implements Node {
   attribute: JSONString
 
   """"""
-  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String): ItemNodeConnection!
+  itemSet(offset: Int, before: String, after: String, first: Int, last: Int, nameFr_Iexact: String, nameFr_Icontains: String, nameFr_Istartswith: String, categoryStr: String, categoryStr_Icontains: String, categoryStr_Istartswith: String, category_Name: String, uuid: UUID, itemsByCategoryName: String, search: String): ItemNodeConnection!
 }
 
 """

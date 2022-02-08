@@ -25,9 +25,15 @@ class CarbonItemViewModel: ObservableObject{
     @Published var items: [Item] = []
     @Published var selectedItem: Item? = nil
     
-    @Published var searchText: String = ""
+    
     @Published var presentAlert: Bool = false
-        
+    
+    @Published var searchText: String = ""
+    @Published var suggestedResults: [Item] = []
+    @Published var searchResults: [Item] = []
+    
+    private var canSearch = true
+    
     var errorMsg: String?{
         didSet{
             if errorMsg != nil {
@@ -62,6 +68,8 @@ class CarbonItemViewModel: ObservableObject{
         self.items = []
         self.itemsCursor = nil
         self.selectedItem = nil
+        self.suggestedResults = []
+        self.searchResults = []
     }
     
     func cleanError(){
@@ -158,6 +166,18 @@ class CarbonItemViewModel: ObservableObject{
     }
     
     // MARK: - Items
+    func getSingleItem(){
+        //Used to prevent onreceive events to trigger a suggestion search
+        self.networkManager.getItem(forName: self.searchText)
+            .sink(onError: { err in
+                print(err.localizedDescription)
+            }, receiveValue: { res in
+                self.searchResults = self.processItems(result: res.data?.items?.fragments.itemDetails)
+                print("GET ITEMS")
+                print(self.searchResults.map{$0.name})
+            })
+    }
+    
     func fetchItems(){
         guard let subCat = self.selectedSubCategory else { return }
         self.fetchItems(forCategory: subCat)
@@ -168,7 +188,8 @@ class CarbonItemViewModel: ObservableObject{
             .sink(onError: { err in
                 self.errorMsg = err.localizedDescription
             }, receiveValue: { res in
-                self.processItems(result: res.data?.items?.fragments.itemDetails)
+                let newItems = self.processItems(result: res.data?.items?.fragments.itemDetails)
+                self.items.append(contentsOf: newItems)
         })
     }
     
@@ -179,8 +200,8 @@ class CarbonItemViewModel: ObservableObject{
         }
     }
 
-    func processItems(result: GraphCarbon.ItemDetails?){
-        guard let res = result else { return }
+    func processItems(result: GraphCarbon.ItemDetails?) -> [Item]{
+        guard let res = result else { return [] }
         self.itemsCursor = res.pageInfo.endCursor
         
         let nodes = res.edges.compactMap{($0?.node, $0?.cursor)}
@@ -208,8 +229,7 @@ class CarbonItemViewModel: ObservableObject{
                 cursor: cur)
         }
         
-        print("New items: \(newItems.count)")
-        self.items.append(contentsOf: newItems)
+        return newItems
     }
     
     func unwrapUnit(u: GraphCarbon.UnitDetails?) -> Unit?{
@@ -224,6 +244,22 @@ class CarbonItemViewModel: ObservableObject{
         
         return Unit(id: uuid, name: name, type: type, numerator: num, denominator: den)
     }
+    
+    //MARK: - Search
+    func searchItems(){
+        print("searchtext \(self.searchText)")
+        self.networkManager.searchItems(forName: self.searchText)
+            .sink(onError: { err in
+                // TODO: Handle error
+                print(err.localizedDescription)
+            }, receiveValue: { res in
+                self.suggestedResults = self.processItems(result: res.data?.items?.fragments.itemDetails)
+                print(self.suggestedResults.map{($0.name, $0.id)})
+                print(self.suggestedResults.count)
+            })
+    }
+    
+    
     
     // MARK: - Addition
     func addItemToStore(value: Double, date: Date){

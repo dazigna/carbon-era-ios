@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CarbonCategoryView: View{
+    @Environment(\.isSearching) var isSearching
+    @Environment(\.dismissSearch) var dismissSearch
+    
     @EnvironmentObject var viewModel: CarbonItemViewModel
     @State private var showDetail: Bool = false
     
@@ -25,6 +28,11 @@ struct CarbonCategoryView: View{
             }
             
             NavigationLink("", destination: CarbonSubCategoryView(), isActive: $showDetail)
+        }
+        .overlay{
+            if  isSearching && !viewModel.searchResults.isEmpty {
+                CarbonItemsSearchResultsView().environmentObject(viewModel)
+            }
         }
         .navigationTitle("Categories")
         .onAppear{
