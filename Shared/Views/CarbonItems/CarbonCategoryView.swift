@@ -30,8 +30,9 @@ struct CarbonCategoryView: View{
             NavigationLink("", destination: CarbonSubCategoryView(), isActive: $showDetail)
         }
         .overlay{
-            if  isSearching && !viewModel.searchResults.isEmpty {
-                CarbonItemsSearchResultsView().environmentObject(viewModel)
+            if isSearching && !viewModel.searchResults.isEmpty {
+                CarbonItemsSearchResultsView()
+                    .environmentObject(viewModel)
             }
         }
         .navigationTitle("Categories")

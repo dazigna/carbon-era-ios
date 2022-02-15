@@ -24,11 +24,10 @@ struct CarbonItemsSearchResultsView: View {
                 .partialSheet(isPresented: $isPresented){
                     CarbonItemDrawerView(isPresented: $isPresented).environmentObject(viewModel)
                 }
-                .onDisappear{
-                    viewModel.cleanUpItems()
-                }
         }
-        
+        .onDisappear{
+            viewModel.cleanUpItems()
+        }
     }
 }
 
