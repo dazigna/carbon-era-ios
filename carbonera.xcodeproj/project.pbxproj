@@ -17,6 +17,9 @@
 		CC09BA5827B1B1860042B4BE /* CarbonItemsSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC09BA5627B1B1860042B4BE /* CarbonItemsSearchResultsView.swift */; };
 		CC09BA5A27B2CF9B0042B4BE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC09BA5927B2CF9B0042B4BE /* LocationManager.swift */; };
 		CC09BA5B27B2CF9B0042B4BE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC09BA5927B2CF9B0042B4BE /* LocationManager.swift */; };
+		CC09BA5F27B2F5460042B4BE /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = CC09BA5E27B2F5460042B4BE /* MapboxMaps */; };
+		CC09BA6127B2F5F20042B4BE /* MapBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC09BA6027B2F5F20042B4BE /* MapBoxView.swift */; };
+		CC09BA6227B2F5F20042B4BE /* MapBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC09BA6027B2F5F20042B4BE /* MapBoxView.swift */; };
 		CC0B95522790486500E01F5C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B95512790486500E01F5C /* Tests_iOS.swift */; };
 		CC0B95542790486500E01F5C /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B95532790486500E01F5C /* Tests_iOSLaunchTests.swift */; };
 		CC0B955E2790486500E01F5C /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B955D2790486500E01F5C /* Tests_macOS.swift */; };
@@ -30,6 +33,7 @@
 		CC0B957727904B9400E01F5C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = CC0B957627904B9400E01F5C /* Apollo */; };
 		CC4432F427AC6B8B00B48447 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4432F327AC6B8B00B48447 /* StatsViewModel.swift */; };
 		CC4432F927AC754400B48447 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = CC4432F827AC754400B48447 /* PartialSheet */; };
+		CC7AAC0D27BBFA81006735E4 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7AAC0C27BBFA81006735E4 /* DateExtensions.swift */; };
 		CCB2AA5727A99BD5000E41C1 /* CarbonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */; };
 		CCB2AA5827A99BD5000E41C1 /* CarbonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */; };
 		CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */; };
@@ -67,13 +71,16 @@
 		CCD53151279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */; };
 		CCD53155279B13E000D6ED4B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53154279B13E000D6ED4B /* MainView.swift */; };
 		CCD53156279B13E000D6ED4B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53154279B13E000D6ED4B /* MainView.swift */; };
-		CCD53159279B141D00D6ED4B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53158279B141D00D6ED4B /* MapView.swift */; };
-		CCD5315A279B141D00D6ED4B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53158279B141D00D6ED4B /* MapView.swift */; };
+		CCD53159279B141D00D6ED4B /* CarbonMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53158279B141D00D6ED4B /* CarbonMapView.swift */; };
+		CCD5315A279B141D00D6ED4B /* CarbonMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53158279B141D00D6ED4B /* CarbonMapView.swift */; };
 		CCD5315F279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */; };
 		CCD53160279B1A6B00D6ED4B /* EmptyListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */; };
 		CCD53166279B385700D6ED4B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD53165279B385700D6ED4B /* MapKit.framework */; };
 		CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53167279B3CE800D6ED4B /* MapViewModel.swift */; };
 		CCD53169279B3CE800D6ED4B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD53167279B3CE800D6ED4B /* MapViewModel.swift */; };
+		CCE56B1F27B448BD00A4F497 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE56B1E27B448BD00A4F497 /* UserDefaultsExtensions.swift */; };
+		CCE56B2227B448F800A4F497 /* CameraLocationConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE56B2127B448F800A4F497 /* CameraLocationConsumer.swift */; };
+		CCE56B2427B44A7400A4F497 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE56B2327B44A7400A4F497 /* BundleExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,7 @@
 		CC09BA5327AD66E30042B4BE /* CarbonSubCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonSubCategoryView.swift; sourceTree = "<group>"; };
 		CC09BA5627B1B1860042B4BE /* CarbonItemsSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemsSearchResultsView.swift; sourceTree = "<group>"; };
 		CC09BA5927B2CF9B0042B4BE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		CC09BA6027B2F5F20042B4BE /* MapBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxView.swift; sourceTree = "<group>"; };
 		CC0B95392790486400E01F5C /* carboneraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carboneraApp.swift; sourceTree = "<group>"; };
 		CC0B953A2790486400E01F5C /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		CC0B953B2790486500E01F5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +120,7 @@
 		CC0B955D2790486500E01F5C /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		CC0B955F2790486500E01F5C /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		CC4432F327AC6B8B00B48447 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		CC7AAC0C27BBFA81006735E4 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonStore.swift; sourceTree = "<group>"; };
 		CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredCarbonItem.swift; sourceTree = "<group>"; };
 		CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemDrawerView.swift; sourceTree = "<group>"; };
@@ -134,10 +143,13 @@
 		CCD5314F279A005A00D6ED4B /* CarbonItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemRowView.swift; sourceTree = "<group>"; };
 		CCD53152279B132B00D6ED4B /* carbonera--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "carbonera--iOS--Info.plist"; sourceTree = "<group>"; };
 		CCD53154279B13E000D6ED4B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		CCD53158279B141D00D6ED4B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CCD53158279B141D00D6ED4B /* CarbonMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonMapView.swift; sourceTree = "<group>"; };
 		CCD5315E279B1A6B00D6ED4B /* EmptyListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListModifier.swift; sourceTree = "<group>"; };
 		CCD53165279B385700D6ED4B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		CCD53167279B3CE800D6ED4B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		CCE56B1E27B448BD00A4F497 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
+		CCE56B2127B448F800A4F497 /* CameraLocationConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLocationConsumer.swift; sourceTree = "<group>"; };
+		CCE56B2327B44A7400A4F497 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +161,7 @@
 				CCD53166279B385700D6ED4B /* MapKit.framework in Frameworks */,
 				CC4432F927AC754400B48447 /* PartialSheet in Frameworks */,
 				CCD5313C2799F60100D6ED4B /* ApolloCombine in Frameworks */,
+				CC09BA5F27B2F5460042B4BE /* MapboxMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +214,7 @@
 				CCB2AA6127AB1B01000E41C1 /* GraphQLAPI.swift */,
 				CC0B953B2790486500E01F5C /* Assets.xcassets */,
 				CCD5314B2799FFE900D6ED4B /* DataModels */,
+				CCE56B1D27B4488A00A4F497 /* Extensions */,
 				CCD5314C2799FFF300D6ED4B /* Services */,
 				CCB2AA5927A99BDA000E41C1 /* Stores */,
 				CCD5314A2799FFDC00D6ED4B /* ViewModels */,
@@ -300,9 +314,9 @@
 		CCD5314C2799FFF300D6ED4B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CCE56B2027B448EA00A4F497 /* Location */,
 				CCD5314D279A000C00D6ED4B /* Network */,
 				CCD5314E279A003700D6ED4B /* Configuration */,
-				CC09BA5927B2CF9B0042B4BE /* LocationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -341,7 +355,8 @@
 		CCD5315B279B142200D6ED4B /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				CCD53158279B141D00D6ED4B /* MapView.swift */,
+				CCD53158279B141D00D6ED4B /* CarbonMapView.swift */,
+				CC09BA6027B2F5F20042B4BE /* MapBoxView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -370,6 +385,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CCE56B1D27B4488A00A4F497 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CCE56B1E27B448BD00A4F497 /* UserDefaultsExtensions.swift */,
+				CCE56B2327B44A7400A4F497 /* BundleExtensions.swift */,
+				CC7AAC0C27BBFA81006735E4 /* DateExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CCE56B2027B448EA00A4F497 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				CC09BA5927B2CF9B0042B4BE /* LocationManager.swift */,
+				CCE56B2127B448F800A4F497 /* CameraLocationConsumer.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -381,6 +415,7 @@
 				CC0B953C2790486500E01F5C /* Sources */,
 				CC0B953D2790486500E01F5C /* Frameworks */,
 				CC0B953E2790486500E01F5C /* Resources */,
+				CC09BA5C27B2F2CB0042B4BE /* Mapbox SDK */,
 			);
 			buildRules = (
 			);
@@ -391,6 +426,7 @@
 				CC0B957627904B9400E01F5C /* Apollo */,
 				CCD5313B2799F60100D6ED4B /* ApolloCombine */,
 				CC4432F827AC754400B48447 /* PartialSheet */,
+				CC09BA5E27B2F5460042B4BE /* MapboxMaps */,
 			);
 			productName = "carbonera (iOS)";
 			productReference = CC0B95402790486500E01F5C /* carbonera.app */;
@@ -488,6 +524,7 @@
 				CC0B957527904B9400E01F5C /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				CCD5313A2799F60100D6ED4B /* XCRemoteSwiftPackageReference "ApolloCombine" */,
 				CC4432F727AC754400B48447 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				CC09BA5D27B2F5460042B4BE /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = CC0B95412790486500E01F5C /* Products */;
 			projectDirPath = "";
@@ -539,6 +576,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		CC09BA5C27B2F2CB0042B4BE /* Mapbox SDK */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+				"~/.mapbox",
+			);
+			name = "Mapbox SDK";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Look for a global file named 'mapbox' or '.mapbox' within the home directory\ntoken_file=.mapbox\ntoken=\"$(cat $token_file 2>/dev/null)\"\nif [ \"$token\" ]; then\n  echo $token \n  plutil -replace MBXAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\n  echo 'warning: Missing Mapbox access token'\n  open 'https://account.mapbox.com/access-tokens/'\n  echo \"warning: Get an access token from <https://account.mapbox.com/access-tokens/>, then create a new file at $token_file or $token_file2 that contains the access token.\"\nfi\n";
+		};
 		CCD8F77D2799C5B30053597E /* Apollo */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -570,9 +627,10 @@
 				CCC16B34279F07C4004DBCB6 /* CategoryRowView.swift in Sources */,
 				CCD5313E2799F94400D6ED4B /* ConfigurationManager.swift in Sources */,
 				CCD531412799FBBE00D6ED4B /* CarbonItemsView.swift in Sources */,
-				CCD53159279B141D00D6ED4B /* MapView.swift in Sources */,
+				CCD53159279B141D00D6ED4B /* CarbonMapView.swift in Sources */,
 				CCD5312F2799CAD900D6ED4B /* NetworkManager.swift in Sources */,
 				CCC16B2E279F02FA004DBCB6 /* Category.swift in Sources */,
+				CCE56B1F27B448BD00A4F497 /* UserDefaultsExtensions.swift in Sources */,
 				CCD53150279A005A00D6ED4B /* CarbonItemRowView.swift in Sources */,
 				CCB2AA6527AC4870000E41C1 /* PhysicalUnits.swift in Sources */,
 				CCB2AA6227AB1B01000E41C1 /* GraphQLAPI.swift in Sources */,
@@ -584,11 +642,15 @@
 				CCB2AA5E27A9C8F9000E41C1 /* CarbonItemDrawerView.swift in Sources */,
 				CC09BA5127AD66B70042B4BE /* CarbonCategoryView.swift in Sources */,
 				CC4432F427AC6B8B00B48447 /* StatsViewModel.swift in Sources */,
+				CCE56B2427B44A7400A4F497 /* BundleExtensions.swift in Sources */,
 				CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */,
 				CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
+				CCE56B2227B448F800A4F497 /* CameraLocationConsumer.swift in Sources */,
+				CC09BA6127B2F5F20042B4BE /* MapBoxView.swift in Sources */,
 				CCD531382799CCF300D6ED4B /* Error.swift in Sources */,
 				CC09BA5427AD66E30042B4BE /* CarbonSubCategoryView.swift in Sources */,
 				CCB2AA5727A99BD5000E41C1 /* CarbonStore.swift in Sources */,
+				CC7AAC0D27BBFA81006735E4 /* DateExtensions.swift in Sources */,
 				CC0B95612790486500E01F5C /* carboneraApp.swift in Sources */,
 				CC09BA5A27B2CF9B0042B4BE /* LocationManager.swift in Sources */,
 			);
@@ -608,7 +670,8 @@
 				CC09BA5527AD66E30042B4BE /* CarbonSubCategoryView.swift in Sources */,
 				CCD5313F2799F94400D6ED4B /* ConfigurationManager.swift in Sources */,
 				CCD531422799FBBE00D6ED4B /* CarbonItemsView.swift in Sources */,
-				CCD5315A279B141D00D6ED4B /* MapView.swift in Sources */,
+				CCD5315A279B141D00D6ED4B /* CarbonMapView.swift in Sources */,
+				CC09BA6227B2F5F20042B4BE /* MapBoxView.swift in Sources */,
 				CCD531302799CAD900D6ED4B /* NetworkManager.swift in Sources */,
 				CC09BA5B27B2CF9B0042B4BE /* LocationManager.swift in Sources */,
 				CCC16B2F279F02FA004DBCB6 /* Category.swift in Sources */,
@@ -1028,6 +1091,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CC09BA5D27B2F5460042B4BE /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.2.0;
+			};
+		};
 		CC0B957527904B9400E01F5C /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios";
@@ -1055,6 +1126,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CC09BA5E27B2F5460042B4BE /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC09BA5D27B2F5460042B4BE /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
 		CC0B957627904B9400E01F5C /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC0B957527904B9400E01F5C /* XCRemoteSwiftPackageReference "apollo-ios" */;

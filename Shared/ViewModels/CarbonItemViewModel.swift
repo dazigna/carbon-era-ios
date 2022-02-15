@@ -54,7 +54,7 @@ class CarbonItemViewModel: ObservableObject{
     
     let numberOfItemsToFetch = 20
     
-    init(networkM: BaseNetworkInterface = NetworkManager(), store: StorageInterface = CarbonStore()!){
+    init(networkM: BaseNetworkInterface = NetworkManager(), store: StorageInterface){
         self.networkManager = networkM
         self.store = store
     }
@@ -210,7 +210,7 @@ class CarbonItemViewModel: ObservableObject{
             guard let it = item,
                   let cur = cursor,
                   let uuid = UUID(uuidString: it.uuid),
-                  let name = it.nameFr,
+                  let name = it.nameFr?.trimmingCharacters(in: CharacterSet(charactersIn: "\"")).trimmingCharacters(in: .whitespaces),
                   let co2Value = it.totalPoste,
                   let unit = unwrapUnit(u: it.unit?.fragments.unitDetails),
                   let unitstr = it.unitStr,
@@ -265,7 +265,8 @@ class CarbonItemViewModel: ObservableObject{
     func addItemToStore(value: Double, date: Date){
         guard let item = selectedItem else { return }
         let measure = Measurement(value: item.totalPoste * value, unit: UnitMass.kgCO2e)
-        let itemToStore = StoredCarbonItem(name: item.name, measure: measure, type: item.unit.type.rawValue, cursor: item.cursor, date: date)
+        print("adding \(measure)")
+        let itemToStore = StoredCarbonItem(id: item.id, name: item.name, measure: measure, type: item.unit.type.rawValue, cursor: item.cursor, date: date)
         self.store.write(itemToStore){ res in
             switch res {
             case .success(_):

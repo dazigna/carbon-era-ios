@@ -11,3 +11,10 @@ extension UnitMass{
     static let kgCO2e = UnitMass(symbol: "kgCO2e", converter: UnitConverterLinear(coefficient: 1.0))
 }
 
+extension Measurement{
+    func formattedWithBaseUnit() -> String{
+        let formatter = MeasurementFormatter()
+        formatter.unitOptions = .providedUnit
+        return formatter.string(from: self)
+    }
+}

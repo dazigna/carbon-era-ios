@@ -9,20 +9,26 @@ import SwiftUI
 import PartialSheet
 
 struct MainView: View {
+    @EnvironmentObject var carbonViewModel: CarbonItemViewModel
+    @EnvironmentObject var mapViewModel: MapViewModel
+    @EnvironmentObject var statsViewModel: StatsViewModel
     var body: some View {
         TabView{
             CarbonView()
                 .tabItem{
                     Label("Items", systemImage: "list.dash")
-                }.environmentObject(CarbonItemViewModel())
-            MapView(viewModel: MapViewModel())
+                }
+                .environmentObject(carbonViewModel)
+            CarbonMapView()
                 .tabItem{
                     Label("Map", systemImage: "map.circle")
                 }
-            StatisticsView(viewModel: StatsViewModel())
+                .environmentObject(mapViewModel)
+            StatisticsView()
                 .tabItem{
                     Label("Stats", systemImage: "sum")
                 }
+                .environmentObject(statsViewModel)
         }.addPartialSheet()
     }
 }

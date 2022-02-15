@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct StoredCarbonItem: Codable {
+struct StoredCarbonItem: Codable, Identifiable {
+    let id: UUID
     let name: String
     let measure: Measurement<UnitMass>
     let type: String

@@ -24,21 +24,21 @@ class CarbonStore: StorageInterface {
     
     public var content: [StoredCarbonItem] = []
     
-    init?(){
+    init(){
         guard let applicationSupportUrl = try? FileManager.default.url(
             for: .applicationSupportDirectory,
                in: .userDomainMask,
                appropriateFor: nil,
                create: false)
         else {
-            return nil
+            fatalError("No applicationSupport dir, aborting")
         }
         self.savedDirectoryUrl = applicationSupportUrl.appendingPathComponent(ConfigurationConstants.storeDirectory)
         self.savedFileUrl = self.savedDirectoryUrl.appendingPathComponent(ConfigurationConstants.carbonItemsStoredFilename)
 
         if !(FileManager.default.fileExists(atPath: self.savedDirectoryUrl.relativePath)) {
               guard (try? FileManager.default.createDirectory(at: self.savedDirectoryUrl, withIntermediateDirectories: true, attributes: nil)) != nil else {
-                  return nil
+                fatalError("Could not create saved direction for Carbon Store, aborting")
               }
         }
         print("Saving url is \(self.savedFileUrl.absoluteString)" )
