@@ -32,10 +32,8 @@ class StatsViewModel: ObservableObject{
     
     func sortArray() -> [SortedStoredCarbonItem]{
         var sortedArray: [SortedStoredCarbonItem] = []
-//        let dates = self.store.content.map{$0.date}
         
         //Get Unique dates
-        var order = [Date]()
         var set = Set<DateComponents>()
 
         let dates = self.store.content.compactMap{ item -> Date? in
@@ -46,14 +44,12 @@ class StatsViewModel: ObservableObject{
             }
             return nil
         }
-
         
         for d in dates{
             let it = self.store.content.filter( {Calendar.current.isDate($0.date, equalTo: d, toGranularity: .day)} )
             sortedArray.append(SortedStoredCarbonItem(date: d, items: it))
         }
         
-        print(sortedArray)
         return sortedArray
     }
     

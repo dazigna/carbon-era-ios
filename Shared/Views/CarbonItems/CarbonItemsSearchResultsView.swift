@@ -9,20 +9,21 @@ import SwiftUI
 
 struct CarbonItemsSearchResultsView: View {
     @EnvironmentObject var viewModel: CarbonItemViewModel
-    @State private var isPresented = false
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         List(viewModel.searchResults, id: \.id) { item in
             CarbonItemRowView(carbonItem: item)
                 .onTapGesture {
                     viewModel.selectedItem = item
-                    self.isPresented = true
+                    viewRouter.showActionSheet = true
                 }
                 .emptyList(viewModel.searchResults){
                     Text("Searching items ...")
                 }
-                .partialSheet(isPresented: $isPresented){
-                    CarbonItemDrawerView(isPresented: $isPresented).environmentObject(viewModel)
+                .partialSheet(isPresented: $viewRouter.showActionSheet){
+                    CarbonItemDrawerView(isPresented: $viewRouter.showActionSheet)
+                        .environmentObject(viewModel)
                 }
         }
         .onDisappear{

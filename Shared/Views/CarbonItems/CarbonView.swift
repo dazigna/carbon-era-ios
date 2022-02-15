@@ -11,7 +11,8 @@ import Combine
 struct CarbonView: View {
 
     @EnvironmentObject var viewModel: CarbonItemViewModel
-    
+    @EnvironmentObject var viewRouter: ViewRouter
+
     var body: some View {
         NavigationView{
             CarbonCategoryView()

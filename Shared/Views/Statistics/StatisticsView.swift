@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
-//  Shared
+//  StatisticsView.swift
+//  carbonera (iOS)
 //
-//  Created by Yacine Alami on 13/01/2022.
+//  Created by Yacine Alami on 15/02/2022.
 //
 
 import SwiftUI
@@ -33,13 +33,7 @@ struct StatisticsView: View {
             Button("Clear Data", action: {
                 viewModel.clearData()
             })
-        }
-        .padding()
-        .onAppear{
-            print("on  appear stats")
-            viewModel.load()
-        }
-            
+        }.padding()
     }
 }
 

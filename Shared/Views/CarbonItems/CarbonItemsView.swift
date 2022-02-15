@@ -10,15 +10,14 @@ import PartialSheet
 
 struct CarbonItemsView: View{
     @EnvironmentObject var viewModel: CarbonItemViewModel
-    
-    @State private var isPresented = false
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         List(viewModel.items, id: \.id) { item in
             CarbonItemRowView(carbonItem: item)
                 .onTapGesture {
                     viewModel.selectedItem = item
-                    self.isPresented = true
+                    viewRouter.showActionSheet = true
                 }
                 .onAppear{
                     viewModel.checkIfItemFetchNeeded(item: item)
@@ -27,8 +26,8 @@ struct CarbonItemsView: View{
         .emptyList(viewModel.items){
             Text("Loading items ...")
         }
-        .partialSheet(isPresented: $isPresented){
-            CarbonItemDrawerView(isPresented: $isPresented).environmentObject(viewModel)
+        .partialSheet(isPresented: $viewRouter.showActionSheet){
+            CarbonItemDrawerView(isPresented: $viewRouter.showActionSheet).environmentObject(viewModel)
         }
         .onAppear{
             viewModel.fetchItems()
