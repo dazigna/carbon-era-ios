@@ -6,5 +6,12 @@
 	<string>pk.eyJ1IjoiZGF6aWduYSIsImEiOiJja3plZnNkbW4zN2l0MnZueDF5Mjl4MG5sIn0.Zp704AA8bHN2C2LE5LM15A</string>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>CarboneraWhite</string>
+		<key>UIImageName</key>
+		<string>Logo</string>
+	</dict>
 </dict>
 </plist>

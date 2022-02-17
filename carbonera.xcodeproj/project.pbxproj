@@ -115,7 +115,7 @@
 		CC0B95392790486400E01F5C /* carboneraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carboneraApp.swift; sourceTree = "<group>"; };
 		CC0B953A2790486400E01F5C /* ContainerStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerStatisticsView.swift; sourceTree = "<group>"; };
 		CC0B953B2790486500E01F5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CC0B95402790486500E01F5C /* carbonera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carbonera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0B95402790486500E01F5C /* Carbon Era.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carbon Era.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B95462790486500E01F5C /* carbonera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carbonera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B95482790486500E01F5C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		CC0B954D2790486500E01F5C /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,7 +236,7 @@
 		CC0B95412790486500E01F5C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC0B95402790486500E01F5C /* carbonera.app */,
+				CC0B95402790486500E01F5C /* Carbon Era.app */,
 				CC0B95462790486500E01F5C /* carbonera.app */,
 				CC0B954D2790486500E01F5C /* Tests iOS.xctest */,
 				CC0B95592790486500E01F5C /* Tests macOS.xctest */,
@@ -444,7 +444,7 @@
 				CC09BA5E27B2F5460042B4BE /* MapboxMaps */,
 			);
 			productName = "carbonera (iOS)";
-			productReference = CC0B95402790486500E01F5C /* carbonera.app */;
+			productReference = CC0B95402790486500E01F5C /* Carbon Era.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CC0B95452790486500E01F5C /* carbonera (macOS) */ = {
@@ -874,7 +874,6 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to localize carbon data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -884,7 +883,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = carbonEra.carbonera;
-				PRODUCT_NAME = carbonera;
+				PRODUCT_NAME = "Carbon Era";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -906,7 +905,6 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to localize carbon data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -916,7 +914,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = carbonEra.carbonera;
-				PRODUCT_NAME = carbonera;
+				PRODUCT_NAME = "Carbon Era";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
