@@ -37,6 +37,8 @@
 		CC7AAC1027BC39B7006735E4 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7AAC0F27BC39B7006735E4 /* ViewRouter.swift */; };
 		CC7AAC1227BC4066006735E4 /* EmptyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7AAC1127BC4066006735E4 /* EmptyStatisticsView.swift */; };
 		CC7AAC1427BC411D006735E4 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7AAC1327BC411D006735E4 /* StatisticsView.swift */; };
+		CC7AAC1627BC479C006735E4 /* StatItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7AAC1527BC479C006735E4 /* StatItemCell.swift */; };
+		CC95484927BEE17600B667A1 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC95484827BEE17600B667A1 /* ColorExtensions.swift */; };
 		CCB2AA5727A99BD5000E41C1 /* CarbonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */; };
 		CCB2AA5827A99BD5000E41C1 /* CarbonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */; };
 		CCB2AA5B27A9C369000E41C1 /* StoredCarbonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */; };
@@ -127,6 +129,8 @@
 		CC7AAC0F27BC39B7006735E4 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		CC7AAC1127BC4066006735E4 /* EmptyStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStatisticsView.swift; sourceTree = "<group>"; };
 		CC7AAC1327BC411D006735E4 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		CC7AAC1527BC479C006735E4 /* StatItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItemCell.swift; sourceTree = "<group>"; };
+		CC95484827BEE17600B667A1 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		CCB2AA5627A99BD5000E41C1 /* CarbonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonStore.swift; sourceTree = "<group>"; };
 		CCB2AA5A27A9C369000E41C1 /* StoredCarbonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredCarbonItem.swift; sourceTree = "<group>"; };
 		CCB2AA5D27A9C8F9000E41C1 /* CarbonItemDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonItemDrawerView.swift; sourceTree = "<group>"; };
@@ -374,6 +378,7 @@
 				CC0B953A2790486400E01F5C /* ContainerStatisticsView.swift */,
 				CC7AAC1127BC4066006735E4 /* EmptyStatisticsView.swift */,
 				CC7AAC1327BC411D006735E4 /* StatisticsView.swift */,
+				CC7AAC1527BC479C006735E4 /* StatItemCell.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				CCE56B1E27B448BD00A4F497 /* UserDefaultsExtensions.swift */,
 				CCE56B2327B44A7400A4F497 /* BundleExtensions.swift */,
 				CC7AAC0C27BBFA81006735E4 /* DateExtensions.swift */,
+				CC95484827BEE17600B667A1 /* ColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -657,11 +663,13 @@
 				CCD53168279B3CE800D6ED4B /* MapViewModel.swift in Sources */,
 				CCE56B2227B448F800A4F497 /* CameraLocationConsumer.swift in Sources */,
 				CC09BA6127B2F5F20042B4BE /* MapBoxView.swift in Sources */,
+				CC95484927BEE17600B667A1 /* ColorExtensions.swift in Sources */,
 				CC7AAC1227BC4066006735E4 /* EmptyStatisticsView.swift in Sources */,
 				CCD531382799CCF300D6ED4B /* Error.swift in Sources */,
 				CC09BA5427AD66E30042B4BE /* CarbonSubCategoryView.swift in Sources */,
 				CCB2AA5727A99BD5000E41C1 /* CarbonStore.swift in Sources */,
 				CC7AAC1427BC411D006735E4 /* StatisticsView.swift in Sources */,
+				CC7AAC1627BC479C006735E4 /* StatItemCell.swift in Sources */,
 				CC7AAC0D27BBFA81006735E4 /* DateExtensions.swift in Sources */,
 				CC0B95612790486500E01F5C /* carboneraApp.swift in Sources */,
 				CC09BA5A27B2CF9B0042B4BE /* LocationManager.swift in Sources */,
